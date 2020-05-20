@@ -145,6 +145,139 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://o-seok.github.io/2020/05/20/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%ED%81%B4%EB%9E%98%EC%8A%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="O-Seok">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="O-Seok Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/20/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%ED%81%B4%EB%9E%98%EC%8A%A4/" class="post-title-link" itemprop="url">파이썬 - 클래스</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-05-20 13:15:45 / Modified: 19:07:09" itemprop="dateCreated datePublished" datetime="2020-05-20T13:15:45+09:00">2020-05-20</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>클래스는 <strong>객체의 구조와 행동을 정의</strong> 한다.<br>객체의 클래스는 초기화를 통해 제어 한다.<br>클래스는 복잡한 문제를 다루기 쉽도록 한다.  </p>
+<blockquote>
+<p>✔️ class, 객체(object), 인스턴스(instance)<br><strong>객체(object)</strong> 는 소프트웨어 세계에 구현할 대상이고, 이를 구현하기 위한 설계도가 <strong>class</strong> 이며, 설계도에 따라 소프트웨어 세계에 구현된 실체가 <strong>인스턴스(instance)</strong> 이다. 보통 인스턴스를 객체라고도 부른다.</p>
+</blockquote>
+<h2 id="클래스-정의-class"><a href="#클래스-정의-class" class="headerlink" title="# 클래스 정의 (class)"></a># 클래스 정의 (class)</h2><p><strong><code>class</code></strong> 키워드를 사용하여 새로운 클래스를 선언한다.<br>파이썬 대부분이 네이밍컨벤션이 단어와 단어 사이에 <code>_</code>를 넣는다면 <strong><code>클래스의 네이명 컨벤션은 CamelCase</code></strong>로 한다.  </p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClassInfo</span>:</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">    print(<span class="string">"초기화"</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="생성자와-인스턴스"><a href="#생성자와-인스턴스" class="headerlink" title="생성자와 인스턴스"></a><strong>생성자와 인스턴스</strong></h3><p><code>인스턴스</code>: 변수에 클래스를 할당 하는 것. 객체가 메모리상에 할당이 되는 것<br><code>생성자</code>: 변수에 클래스를 할당할 때 쓰인다. 인스턴스 할 때 사용하는 것</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClassInfo</span>:</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">    print(<span class="string">"초기화"</span>)</span><br><span class="line"></span><br><span class="line">cInfo = ClassInfo()</span><br></pre></td></tr></table></figure>
+<p>cInfo : 변수<br>ClassInfo() : 생성자</p>
+<h2 id="초기화자-initializing"><a href="#초기화자-initializing" class="headerlink" title="# 초기화자(initializing)"></a># 초기화자(initializing)</h2><p>객체(인스턴스)가 생성되고 나면 <strong><code>__init__</code></strong> 메소드를 호출하여 객체에서 사용할 값들을 초기화 한다.<br>객체에 초기화된 변수들, <strong><code>인스턴스 변수</code></strong> 들을 호출 할 수 있다.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserInfo</span>:</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name, height, weight)</span>:</span></span><br><span class="line">    self.name = name</span><br><span class="line">    self.height = height</span><br><span class="line">    self.weight = weight</span><br><span class="line"></span><br><span class="line">user1 = UserInfo(<span class="string">"Kim"</span>, <span class="number">190</span>, <span class="number">80</span>)</span><br><span class="line"></span><br><span class="line">print(user1.name)</span><br><span class="line">print(user1.height)</span><br><span class="line">print(user1.weight)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Kim</span><br><span class="line">190</span><br><span class="line">80</span><br></pre></td></tr></table></figure>
+
+<h2 id="메소드-타입-self-cls"><a href="#메소드-타입-self-cls" class="headerlink" title="# 메소드 타입 (self / cls)"></a># 메소드 타입 (self / cls)</h2><p><strong><code>인스턴스 함수(메소드)</code></strong></p>
+<ul>
+<li>인스턴스화 되었을 떄 접근/사용 가능</li>
+<li>self를 인자로 받음</li>
+</ul>
+<p><strong><code>클래스 함수(메소드)</code></strong></p>
+<ul>
+<li>클래스 안에 존재하기 때문에 공유 가능</li>
+<li>cls를 인자로 받음</li>
+<li>메소드 위에 <strong>@classmethod</strong> 를 붙여서 사용</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span>:</span></span><br><span class="line">  count = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">    <span class="comment"># self.count 가 아니라 Person.count 접근</span></span><br><span class="line">    Person.count += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"><span class="meta">  @classmethod</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">call</span><span class="params">(cls)</span>:</span></span><br><span class="line">    <span class="comment"># Person.count가 아니라 cls.count 접근</span></span><br><span class="line">    print(<span class="string">'Class method all:'</span>, cls.count)</span><br><span class="line"></span><br><span class="line">a = Person()</span><br><span class="line">b = Person()</span><br><span class="line">c = Person()</span><br><span class="line"></span><br><span class="line">Person.call()</span><br></pre></td></tr></table></figure>
+<p>a, b, c 객체들이 인스턴스화 되면서 클래스 변수 count값을 각각 <strong><code>__init__()</code></strong> 에서 1씩 증가 시켰기 떄문에 출력해보면 3이 된다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class method all: 3</span><br></pre></td></tr></table></figure>
+
+<h2 id="get-set-속성값과-property"><a href="#get-set-속성값과-property" class="headerlink" title="# get/set 속성값과 property"></a># get/set 속성값과 property</h2><p>OOP 언어에서 private 속성을 위해 <strong>getter/setter</strong> 메소드 제공<br>파이썬에선 <strong>getter/setter</strong> 메소드 불필요<br>모든 속성과 메소드는 <strong>public</strong> 이며 필요에 따라서 <strong>property</strong> 사용가능</p>
+<h3 id="property-데코레이터-사용"><a href="#property-데코레이터-사용" class="headerlink" title="@property , @[데코레이터] 사용"></a><strong>@property , @[데코레이터] 사용</strong></h3><p><strong><code>@property</code></strong> : getter의 역할로 사용될 메소드 위에 데코레이터로 사용해준다. 변수로서의 사용을 가능하게 해준다.<br><strong><code>@(getter역할의 메소드 이름).setter</code></strong> : getter역할의 메소드의 setter역할을 해주는 메소드위에 사용해준다. 변수로서의 사용을 가능하게 해준다.  </p>
+<blockquote>
+<p>⚠️ @property 와 @(getter역할의 메소드 이름).setter</p>
+<ul>
+<li>getter와 setter역할을 하는 메소드의 이름은 동일하게 해주어야 한다.  </li>
+<li>@().setter의 ()에는 @property의 메소드 이름을 붙여준다.</li>
+</ul>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span>:</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name)</span>:</span></span><br><span class="line">    self.hidden_name = name</span><br><span class="line"></span><br><span class="line"><span class="meta">  @property</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">name</span><span class="params">(self)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> self.hidden_name</span><br><span class="line">  </span><br><span class="line"><span class="meta">  @name.setter</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">name</span><span class="params">(self, name)</span>:</span></span><br><span class="line">    self.hidden_name = name</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 객체 </span></span><br><span class="line">  p = Person(<span class="string">'John'</span>)</span><br></pre></td></tr></table></figure>
+<p>@property를 데코레이터로 사용해주면 메소드를 변수처럼 사용할 수 있다. </p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(p.name)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">John</span><br></pre></td></tr></table></figure>
+<p>@name.setter의 메소드를 변수처럼 사용하여 hidden_name을 변경하는 setter를 실행시킨다.  </p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">p.name = <span class="string">'Kevin'</span></span><br><span class="line">print(p.name)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Kevin</span><br></pre></td></tr></table></figure>
+
+<h3 id="Property만-사용한-read-only"><a href="#Property만-사용한-read-only" class="headerlink" title="@Property만 사용한 read-only"></a><strong>@Property만 사용한 read-only</strong></h3><p>@property만 사용하고 setter를 사용하지 않으면, 외부에서 속성 변경이 불가한 read-only속성을 가진다. </p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Circle</span>:</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, radius)</span>:</span></span><br><span class="line">    self.radius = radius</span><br><span class="line"></span><br><span class="line"><span class="meta">  @property</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">diameter</span><span class="params">(self)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span> * self.radius</span><br><span class="line"></span><br><span class="line">circle = Circle(<span class="number">10</span>)</span><br><span class="line">print(circle.diameter)</span><br><span class="line"></span><br><span class="line">circle.radius = <span class="number">5</span></span><br><span class="line">print(circle.diameter)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">20</span><br><span class="line">10</span><br></pre></td></tr></table></figure>
+<p>만약 속성을 변경하려 한다면, setter가 없기 때문에 에러가 발생한다.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">circle.diameter = <span class="number">100</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">---------------------------------------------------------------------------</span><br><span class="line">AttributeError                            Traceback (most recent call last)</span><br><span class="line">&lt;ipython-input-24-17341e80dce9&gt; in &lt;module&gt;()</span><br><span class="line">     14 print(circle.diameter)</span><br><span class="line">     15 </span><br><span class="line">---&gt; 16 circle.diameter &#x3D; 100</span><br><span class="line"></span><br><span class="line">AttributeError: can&#39;t set attribute</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="네임-스페이스"><a href="#네임-스페이스" class="headerlink" title="# 네임 스페이스"></a># 네임 스페이스</h2><p>인스턴스가 가지고 있는 자기 자신의 저장공간<br>인스턴스들의 네임스페이스들은 각자 독립적이다.<br><code>__dict__</code>: 네임스페이스를 알수 있는 함수</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WareHouse</span>:</span></span><br><span class="line">  <span class="comment"># 클래스 변수</span></span><br><span class="line">  stock_num = <span class="number">0</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name)</span>:</span></span><br><span class="line">    self.name = name</span><br><span class="line">    WareHouse.stock_num += <span class="number">1</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">__del__</span><span class="params">(self)</span>:</span></span><br><span class="line">    WareHouse.stock_num -= <span class="number">1</span></span><br><span class="line"></span><br><span class="line">user1 = WareHouse(<span class="string">'Kim'</span>)</span><br><span class="line">user2 = WareHouse(<span class="string">'Pard'</span>)</span><br><span class="line">user3 = WareHouse(<span class="string">'Lee'</span>)</span><br></pre></td></tr></table></figure>
+<p>각 인스턴스들의 네임 스페이스를 출력 해보면</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(user1.__dict__)</span><br><span class="line">print(user2.__dict__)</span><br><span class="line">print(user3.__dict__)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#39;name&#39;: &#39;Kim&#39;&#125;</span><br><span class="line">&#123;&#39;name&#39;: &#39;Pard&#39;&#125;</span><br><span class="line">&#123;&#39;name&#39;: &#39;Lee&#39;&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>클래스 변수</code>: 직접 사용 가능, 객체 보다 먼저 생성, 공유 가능하다.  </p>
+<p>이때, 인스턴스들이 가지고 있지 않은 인스턴스 변수 외의 클래스 변수 값을 호출 할 수도 있다.  </p>
+<p>class변수인 stock_num은 user1, user2, user3 이 인스턴스화 되면서 각자의 초기화 함수를 통해 값이 3번 변하였다.  </p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(user1.stock_num)</span><br><span class="line">print(user2.stock_num)</span><br><span class="line">print(user3.stock_num)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">3</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
+<p>인스턴스에 존재하지 않는 변수를 호출하면 <strong>인스턴스 네임 스페이스에서 찾고, 없으면 마지막으로 클래스 네임스페이스</strong>에서 찾아 호출한다.  </p>
+<h2 id="객체-인스턴스-삭제"><a href="#객체-인스턴스-삭제" class="headerlink" title="# 객체(인스턴스) 삭제"></a># 객체(인스턴스) 삭제</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">del</span> (객체(인스턴스))</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://o-seok.github.io/2020/05/19/python-function/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -168,10 +301,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-05-19 22:41:44 / Modified: 23:16:57" itemprop="dateCreated datePublished" datetime="2020-05-19T22:41:44+09:00">2020-05-19</time>
+              <time title="Created: 2020-05-19 22:41:44" itemprop="dateCreated datePublished" datetime="2020-05-19T22:41:44+09:00">2020-05-19</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-20 19:07:17" itemprop="dateModified" datetime="2020-05-20T19:07:17+09:00">2020-05-20</time>
+              </span>
 
           
 
@@ -545,12 +684,12 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
