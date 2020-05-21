@@ -395,9 +395,10 @@ code {
 }
 .header-title-name {
   width: 100%;
-  font-style: italic;
   margin-bottom: 15px;
-  padding-left: 70px;
+  padding-left: 50px;
+  font-style: italic;
+  font-size: 1.5em;
 }
 .nav-container .nav-icon,
 .nav-container .nav-container-inner #main-nav .main-nav-list-item .main-nav-list-link {
