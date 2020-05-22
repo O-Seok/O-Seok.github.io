@@ -354,6 +354,7 @@ code {
 }
 #header-inner {
   position: relative;
+  font-weight: bold;
 }
 #header-title {
   display: -webkit-box;
