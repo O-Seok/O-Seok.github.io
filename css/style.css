@@ -390,36 +390,15 @@ code {
   color: #fff;
   text-shadow: 0 1px rgba(0,0,0,0.2);
 }
-@media screen and (max-width: 959px) {
-  #header-title {
-    padding: 0 0;
-  }
-  .logo-wrap {
-    width: 100%;
-    text-align: center;
-  }
-  .logo {
-    display: inline-block;
-  }
-  .header-title-name {
-    width: 100%;
-    margin-bottom: 15px;
-    text-align: center;
-    font-style: italic;
-    font-size: 20px;
-  }
+#header-title .logo-wrap {
+  width: 100%;
 }
-@media screen and (min-width: 960px) {
-  .logo-wrap {
-    width: 100%;
-  }
-  .header-title-name {
-    width: 100%;
-    margin-bottom: 15px;
-    padding-left: 50px;
-    font-style: italic;
-    font-size: 20px;
-  }
+#header-title .header-title-name {
+  width: 100%;
+  margin-bottom: 15px;
+  padding-left: 50px;
+  font-style: italic;
+  font-size: 20px;
 }
 .nav-container .nav-icon,
 .nav-container .nav-container-inner #main-nav .main-nav-list-item .main-nav-list-link {
