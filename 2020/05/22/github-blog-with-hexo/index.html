@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>Hexo로 관리하는 github 블로그 👨🏻‍💻 | O-Seok 개발일지</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="hexo,blog,github" />
+    
+    <meta name="description" content="Hexo로 블로그를 관리해보자.Hexo Document를 참고하여 정리 했고, 자세한 사항은 사이트에서 확인 할 수 있다. # 준비단계github repository 만들기github에서 (user name).github.io repository를 만든다. ( 나의 경우는 O-Seok.github.io )clone하여 내 로컬에도 환경을 만들어 놓는다.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo로 관리하는 github 블로그 👨🏻‍💻">
+<meta property="og:url" content="https://o-seok.github.io/2020/05/22/github-blog-with-hexo/index.html">
+<meta property="og:site_name" content="O-Seok 개발일지">
+<meta property="og:description" content="Hexo로 블로그를 관리해보자.Hexo Document를 참고하여 정리 했고, 자세한 사항은 사이트에서 확인 할 수 있다. # 준비단계github repository 만들기github에서 (user name).github.io repository를 만든다. ( 나의 경우는 O-Seok.github.io )clone하여 내 로컬에도 환경을 만들어 놓는다.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://o-seok.github.io/images/github_with_hexo.jpeg">
+<meta property="article:published_time" content="2020-05-22T13:41:29.000Z">
+<meta property="article:modified_time" content="2020-05-22T13:43:06.436Z">
+<meta property="article:author" content="O-Seok">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="blog">
+<meta property="article:tag" content="github">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://o-seok.github.io/images/github_with_hexo.jpeg">
+    
+
+    
+        <link rel="alternate" href="/" title="O-Seok 개발일지" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/images/favicon_io/sparks.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    <p class="header-title-name">
+                        O-Seok 개발 성장 일지 ✨
+                    </p>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    uncategorized
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-github-blog-with-hexo" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Hexo로 관리하는 github 블로그 👨🏻‍💻
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/2020/05/22/github-blog-with-hexo/" class="article-date">
+         <time datetime="2020-05-22T13:41:29.000Z" itemprop="datePublished">2020-05-22</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/blog/" rel="tag">blog</a>, <a class="tag-link" href="/tags/github/" rel="tag">github</a>, <a class="tag-link" href="/tags/hexo/" rel="tag">hexo</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p>Hexo로 블로그를 관리해보자.<br><a href="https://hexo.io/ko/docs/" target="_blank" rel="noopener">Hexo Document</a>를 참고하여 정리 했고, 자세한 사항은 사이트에서 확인 할 수 있다.</p>
+<h2 id="준비단계"><a href="#준비단계" class="headerlink" title="# 준비단계"></a># 준비단계</h2><h3 id="github-repository-만들기"><a href="#github-repository-만들기" class="headerlink" title="github repository 만들기"></a>github repository 만들기</h3><p>github에서 <code>(user name).github.io</code> repository를 만든다. ( 나의 경우는 O-Seok.github.io )<br><code>clone</code>하여 내 로컬에도 환경을 만들어 놓는다.  </p>
+<h3 id="node-설치하기"><a href="#node-설치하기" class="headerlink" title="node 설치하기"></a>node 설치하기</h3><p>Hexo는 node.js 기반의 정적 사이트 생성기의 일종이므로 node를 설치해준다. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew install node</span><br></pre></td></tr></table></figure>
+
+<h2 id="hexo-설치"><a href="#hexo-설치" class="headerlink" title="# hexo 설치"></a># hexo 설치</h2><p>hexo를 설치 해준다.  </p>
+<p><code>npm install -g hexo-cli</code> 해도 되지만<br>권한이 필요한 경우 <code>sudo</code>를 붙여서 설치해준다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p>hexo 블로그로 이용할 폴더의 hexo를 초기화 시켜준다.<br>내 폴더 이름은 YSblog라 했다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ cd &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+<p>로컬영역에서 hexo server를 구동시킨다.<br><a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 로 접속해서 확인한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">claudjung@jeong-yeongseog-ui-MacBookPro YSblog % hexo server</span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http:&#x2F;&#x2F;localhost:4000 . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
+
+<img src="/2020/05/22/github-blog-with-hexo/hexo_blog_local_server.png" class="">
+
+<h2 id="첫-포스트-작성"><a href="#첫-포스트-작성" class="headerlink" title="# 첫 포스트 작성"></a># 첫 포스트 작성</h2><p>hexo 설치가 잘 되었다면 포스팅을 해본다.<br>포스트 생성</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new post &quot;title&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">claudjung@jeong-yeongseog-ui-MacBookPro YSblog % hexo new post first-posting</span><br><span class="line">INFO  Created: ~&#x2F;Documents&#x2F;dev&#x2F;YSblog&#x2F;source&#x2F;_posts&#x2F;first-posting.md</span><br><span class="line">claudjung@jeong-yeongseog-ui-MacBookPro YSblog %</span><br></pre></td></tr></table></figure>
+<p>해당 위치에서 vscode를 열어 포스트를 편집한다. </p>
+<img src="/2020/05/22/github-blog-with-hexo/hexo_first_posting.png" class="">
+
+<p><code>hexo clean</code> : 정리를 한번 해준다.<br><code>hexo generate</code> : git의 commit 느낌<br><code>hexo deploy</code> : git의 push의 느낌이랄까..</p>
+<p>순서대로(hexo clean -&gt; hexo generate -&gt; hexo deploy) 명령을 해주고 hexo server를 구동<br>로컬에서 포스팅이 되었는지 확인해준다.  </p>
+<img src="/2020/05/22/github-blog-with-hexo/first_posting_complete.png" class="">
+
+<h2 id="User-name-github-io-와-연동시키기"><a href="#User-name-github-io-와-연동시키기" class="headerlink" title="# (User name).github.io 와 연동시키기"></a># (User name).github.io 와 연동시키기</h2><p>이제 나의 github에 있는 O-Seok.github.io를 hexo로 관리하기 위해서 연동시켜보자.</p>
+<h3 id="설정"><a href="#설정" class="headerlink" title="설정"></a>설정</h3><p>hexo-deployer-git 을 설치한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p><code>_config.yml</code> 을 편집한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">claudjung@jeong-yeongseog-ui-MacBookPro YSblog % ls -al</span><br><span class="line">total 232</span><br><span class="line">drwxr-xr-x   14 claudjung  staff    448  5  6 02:18 .</span><br><span class="line">drwxr-xr-x    8 claudjung  staff    256  5  4 15:20 ..</span><br><span class="line">drwxr-xr-x    9 claudjung  staff    288  5  6 02:18 .deploy_git</span><br><span class="line">-rw-r--r--    1 claudjung  staff     65  5  4 15:20 .gitignore</span><br><span class="line">-rw-r--r--    1 claudjung  staff   2423  5  6 02:06 _config.yml</span><br><span class="line">-rw-r--r--    1 claudjung  staff  26113  5  6 02:34 db.json</span><br><span class="line">drwxr-xr-x    3 claudjung  staff     96  5  4 15:33 img</span><br><span class="line">drwxr-xr-x  202 claudjung  staff   6464  5  4 15:46 node_modules</span><br><span class="line">-rw-r--r--    1 claudjung  staff  74015  5  4 15:46 package-lock.json</span><br><span class="line">-rw-r--r--    1 claudjung  staff    617  5  4 15:46 package.json</span><br><span class="line">drwxr-xr-x    8 claudjung  staff    256  5  6 02:18 public</span><br><span class="line">drwxr-xr-x    5 claudjung  staff    160  5  4 15:20 scaffolds</span><br><span class="line">drwxr-xr-x    3 claudjung  staff     96  5  4 15:20 source</span><br><span class="line">drwxr-xr-x    4 claudjung  staff    128  5  4 16:58 themes</span><br><span class="line">claudjung@jeong-yeongseog-ui-MacBookPro YSblog % vim _config.yml</span><br></pre></td></tr></table></figure>
+<p>먼저 URL의 <code>url:</code> 부분을 나의 github.io repository 이름으로 수정해준다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># URL</span><br><span class="line">## If your site is put in a subdirectory, set url as &#39;http:&#x2F;&#x2F;yoursite.com&#x2F;child&#39; and root as &#39;&#x2F;child&#x2F;&#39;</span><br><span class="line">url: https:&#x2F;&#x2F;O-Seok.github.io</span><br><span class="line">root: &#x2F;</span><br><span class="line">permalink: :year&#x2F;:month&#x2F;:day&#x2F;:title&#x2F;</span><br><span class="line">permalink_defaults:</span><br><span class="line">pretty_urls:</span><br><span class="line">  trailing_index: true # Set to false to remove trailing &#39;index.html&#39; from permalinks</span><br><span class="line">  trailing_html: true # Set to false to remove trailing &#39;.html&#39; from permalinks</span><br></pre></td></tr></table></figure>
+<p>vim의 insert 모드로 변환 후, #Deployment 의<br><code>type:</code> : git<br><code>repo:</code> : <a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a>(User name)/(User name).github.io.git<br>수정해준다.</p>
+<blockquote>
+<dl><dt>⚠️ 주의<br>type, repo 는 앞에서 2칸을 띄우고 작성한다.</dt><dd>이후엔 한칸을 띄우고 작성한다.<br>(이것은 약속! 이렇게 해야 적용이 된다.)  </dd></dl></blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:&#x2F;&#x2F;github.com&#x2F;O-Seok&#x2F;O-Seok.github.io.git</span><br></pre></td></tr></table></figure>
+<p>다음으로 <code>hexo clean</code> , <code>hexo generate</code>, <code>hexo deploy</code> 를 순서대로 명령해준다.<br>hexo로 관리하던 블로그용 폴더 안의 파일들이 github의 github.io repository에 덮어 씌여진다. </p>
+<img src="/2020/05/22/github-blog-with-hexo/hexo_paste.png" class="">
+
+
+<p>브라우저 url에 블로그 주소를 입력하면 hexo가 된 것을 확인 할 수 있다.<br>BRAVO ~~ !!! 👏🏼</p>
+<img src="/2020/05/22/github-blog-with-hexo/real_blog.png" class="">
+
+
+
+<h2 id="키워드"><a href="#키워드" class="headerlink" title="# 키워드"></a># 키워드</h2><ul>
+<li>sudo npm install -g hexo-cli</li>
+<li>hexo init</li>
+<li>hexo new post</li>
+<li>serer, clean, generate, deploy</li>
+<li>.config_yml<ul>
+<li>url:</li>
+<li>deploy: <ul>
+<li>type: , repo: 설정 법칙 </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://o-seok.github.io/2020/05/22/github-blog-with-hexo/" data-id="ckai9e8yc0003d6ol199y7anw" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "O-Seok"
+        },
+        "headline": "Hexo로 관리하는 github 블로그 👨🏻‍💻",
+        "image": "https://O-Seok.github.io/images/github_with_hexo.jpeg",
+        "keywords": "hexo blog github",
+        "genre": "",
+        "datePublished": "2020-05-22",
+        "dateCreated": "2020-05-22",
+        "dateModified": "2020-05-22",
+        "url": "https://O-Seok.github.io/2020/05/22/github-blog-with-hexo/",
+        "description": "Hexo로 블로그를 관리해보자.Hexo Document를 참고하여 정리 했고, 자세한 사항은 사이트에서 확인 할 수 있다.
+# 준비단계github repository 만들기github에서 (user name).github.io repository를 만든다. ( 나의 경우는 O-Seok.github.io )clone하여 내 로컬에도 환경을 만들어 놓는다.  ",
+        "wordCount": 776
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="instagram" href="https://www.instagram.com/O_Seok_dev/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-instagram"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/O-Seok" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2020/05/22/change-layout-in-hueman-theme-of-hexo/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            hexo hueman 테마에서 반응형으로 header 레이아웃 변경하기
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2020/05/20/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%ED%81%B4%EB%9E%98%EC%8A%A4/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">파이썬 - 클래스</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/05/22/change-layout-in-hueman-theme-of-hexo/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/layout_thumbnail.png)" alt="hexo hueman 테마에서 반응형으로 header 레이아웃 변경하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2020/05/22/change-layout-in-hueman-theme-of-hexo/" class="title">hexo hueman 테마에서 반응형으로 header 레이아웃 변경하기</a></p>
+                            <p class="item-date"><time datetime="2020-05-22T13:46:16.000Z" itemprop="datePublished">2020-05-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/05/22/github-blog-with-hexo/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/github_with_hexo.jpeg)" alt="Hexo로 관리하는 github 블로그 👨🏻‍💻" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2020/05/22/github-blog-with-hexo/" class="title">Hexo로 관리하는 github 블로그 👨🏻‍💻</a></p>
+                            <p class="item-date"><time datetime="2020-05-22T13:41:29.000Z" itemprop="datePublished">2020-05-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/05/20/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%ED%81%B4%EB%9E%98%EC%8A%A4/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumb_python_basic.jpeg)" alt="파이썬 - 클래스" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2020/05/20/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%ED%81%B4%EB%9E%98%EC%8A%A4/" class="title">파이썬 - 클래스</a></p>
+                            <p class="item-date"><time datetime="2020-05-20T04:15:45.000Z" itemprop="datePublished">2020-05-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/05/19/python-function/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumb_python_basic.jpeg)" alt="파이썬 - 함수" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2020/05/19/python-function/" class="title">파이썬 - 함수</a></p>
+                            <p class="item-date"><time datetime="2020-05-19T13:41:44.000Z" itemprop="datePublished">2020-05-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/05/09/CSV-%ED%8C%8C%EC%9D%BC-read%EC%8B%9C-UnicodeDecodeError-%EC%9D%B8%EC%BD%94%EB%94%A9-%EC%98%A4%EB%A5%98-%EB%8C%80%EC%B2%98%ED%95%98%EA%B8%B0/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumb_python_basic.jpeg)" alt="CSV 파일 read시 UnicodeDecodeError 인코딩 오류 대처하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2020/05/09/CSV-%ED%8C%8C%EC%9D%BC-read%EC%8B%9C-UnicodeDecodeError-%EC%9D%B8%EC%BD%94%EB%94%A9-%EC%98%A4%EB%A5%98-%EB%8C%80%EC%B2%98%ED%95%98%EA%B8%B0/" class="title">CSV 파일 read시 UnicodeDecodeError 인코딩 오류 대처하기</a></p>
+                            <p class="item-date"><time datetime="2020-05-09T07:02:10.000Z" itemprop="datePublished">2020-05-09</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">5</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/UnicodeDecodeError/" rel="tag">UnicodeDecodeError</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/" rel="tag">blog</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv/" rel="tag">csv</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/function/" rel="tag">function</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/" rel="tag">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hueman/" rel="tag">hueman</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/layout/" rel="tag">layout</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/theme/" rel="tag">theme</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%ED%81%B4%EB%9E%98%EC%8A%A4/" rel="tag">클래스</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/UnicodeDecodeError/" style="font-size: 10px;">UnicodeDecodeError</a> <a href="/tags/blog/" style="font-size: 15px;">blog</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/csv/" style="font-size: 10px;">csv</a> <a href="/tags/function/" style="font-size: 10px;">function</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/hueman/" style="font-size: 10px;">hueman</a> <a href="/tags/layout/" style="font-size: 10px;">layout</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/%ED%81%B4%EB%9E%98%EC%8A%A4/" style="font-size: 10px;">클래스</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <!-- <a href="/" class="logo"></a> -->
+                </h1>
+                <p>&copy; 2020 O-Seok</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://o-seok.github.io/2020/05/22/github-blog-with-hexo/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
