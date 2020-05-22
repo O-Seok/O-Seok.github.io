@@ -12,16 +12,16 @@
     
     <meta name="keywords" content="hexo,blog,hueman,theme,layout,css" />
     
-    <meta name="description" content="블로그 헤더부분에 로고 이미지와 간단한 제목을 작성하였다.   # 불편함 발생웹페이지가 넓을 때는 현재 레이아웃이 마음에 들었지만 반응형으로 크기를 조절 하니 어디 한군데가 너무나 불편해 졌다.     디자인 1도 모르지만 어느시점에서 로고이미지와 소개글이 가운데로 왔으면 좋겠다. # 반응형으로 header 레이아웃 변경이제 불편함을 지워보자. 💪🏼 t">
+    <meta name="description" content="블로그 헤더부분에 로고 이미지와 간단한 제목을 작성하였다.   # 불편함 발생웹페이지가 넓을 때는 현재 레이아웃이 마음에 들었지만 반응형으로 크기를 조절 하니 어디 한군데가 너무나 불편해 졌다.     심지어 모바일에서 블로그를 접속 해보면 확연하게 불편하다.   디자인 1도 모르지만 어느시점에서 로고이미지와 소개글이 가운데로 왔으면 좋겠다. # 반응형으로">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo hueman 테마에서 반응형으로 header 레이아웃 변경하기">
 <meta property="og:url" content="https://o-seok.github.io/2020/05/22/hexo-hueman-%ED%85%8C%EB%A7%88%EC%97%90%EC%84%9C-header-%EB%B0%98%EC%9D%91%ED%98%95%EC%9C%BC%EB%A1%9C-%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83-%EB%B3%80%EA%B2%BD%ED%95%98%EA%B8%B0/index.html">
 <meta property="og:site_name" content="O-Seok 개발일지">
-<meta property="og:description" content="블로그 헤더부분에 로고 이미지와 간단한 제목을 작성하였다.   # 불편함 발생웹페이지가 넓을 때는 현재 레이아웃이 마음에 들었지만 반응형으로 크기를 조절 하니 어디 한군데가 너무나 불편해 졌다.     디자인 1도 모르지만 어느시점에서 로고이미지와 소개글이 가운데로 왔으면 좋겠다. # 반응형으로 header 레이아웃 변경이제 불편함을 지워보자. 💪🏼 t">
+<meta property="og:description" content="블로그 헤더부분에 로고 이미지와 간단한 제목을 작성하였다.   # 불편함 발생웹페이지가 넓을 때는 현재 레이아웃이 마음에 들었지만 반응형으로 크기를 조절 하니 어디 한군데가 너무나 불편해 졌다.     심지어 모바일에서 블로그를 접속 해보면 확연하게 불편하다.   디자인 1도 모르지만 어느시점에서 로고이미지와 소개글이 가운데로 왔으면 좋겠다. # 반응형으로">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://o-seok.github.io/images/layout_thumbnail.png">
 <meta property="article:published_time" content="2020-05-22T12:38:58.000Z">
-<meta property="article:modified_time" content="2020-05-22T13:11:48.972Z">
+<meta property="article:modified_time" content="2020-05-22T13:26:44.313Z">
 <meta property="article:author" content="O-Seok">
 <meta property="article:tag" content="hexo">
 <meta property="article:tag" content="blog">
@@ -206,6 +206,9 @@
 <h2 id="불편함-발생"><a href="#불편함-발생" class="headerlink" title="# 불편함 발생"></a># 불편함 발생</h2><p>웹페이지가 넓을 때는 현재 레이아웃이 마음에 들었지만 <strong>반응형으로 크기를 조절 하니 어디 한군데가 너무나 불편해</strong> 졌다.  </p>
 
 
+<p>심지어 모바일에서 블로그를 접속 해보면 확연하게 불편하다.</p>
+
+
 <p>디자인 1도 모르지만 어느시점에서 로고이미지와 소개글이 가운데로 왔으면 좋겠다.</p>
 <h2 id="반응형으로-header-레이아웃-변경"><a href="#반응형으로-header-레이아웃-변경" class="headerlink" title="# 반응형으로 header 레이아웃 변경"></a># 반응형으로 header 레이아웃 변경</h2><p>이제 불편함을 지워보자. 💪🏼</p>
 <p><code>theme/hueman/_partial/header.styl</code> 로 들어가 css를 수정한다.  </p>
@@ -217,6 +220,14 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">@media screen and (max-width: 959px)</span><br><span class="line">    #header-title</span><br><span class="line">        padding: 0 0</span><br><span class="line"></span><br><span class="line">    .logo-wrap</span><br><span class="line">        width: 100%</span><br><span class="line">        text-align: center</span><br><span class="line"></span><br><span class="line">    .logo</span><br><span class="line">        display: inline-block</span><br><span class="line"></span><br><span class="line">    .header-title-name</span><br><span class="line">        width: 100%</span><br><span class="line">        margin-bottom: 15px</span><br><span class="line">        text-align: center</span><br><span class="line">        font-style: italic</span><br><span class="line">        font-size: 20px</span><br><span class="line"></span><br><span class="line">@media screen and (min-width: 960px)</span><br><span class="line">    .logo-wrap</span><br><span class="line">        width: 100%</span><br><span class="line"></span><br><span class="line">    .header-title-name</span><br><span class="line">        width: 100%</span><br><span class="line">        margin-bottom: 15px</span><br><span class="line">        padding-left: 50px</span><br><span class="line">        font-style: italic</span><br><span class="line">        font-size: 20px</span><br></pre></td></tr></table></figure>
 
 <p>위와 같이 max-width: 959px, min-width: 960px 속성값을 주고 각각에 맞는 속성값들을 넣어 주었다.  </p>
+<h2 id="불편함-해결-👏🏼"><a href="#불편함-해결-👏🏼" class="headerlink" title="# 불편함 해결 👏🏼"></a># 불편함 해결 👏🏼</h2><p>불편함 삭제 !!  </p>
+<p>확인 ✔️</p>
+
+
+<p>모바일도 확인 ✔️  </p>
+
+
+
 
         </div>
         <footer class="article-footer">
@@ -224,7 +235,7 @@
 
 
 
-    <a data-url="https://o-seok.github.io/2020/05/22/hexo-hueman-%ED%85%8C%EB%A7%88%EC%97%90%EC%84%9C-header-%EB%B0%98%EC%9D%91%ED%98%95%EC%9C%BC%EB%A1%9C-%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83-%EB%B3%80%EA%B2%BD%ED%95%98%EA%B8%B0/" data-id="ckai8aabf000118ol3q7xc3zj" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://o-seok.github.io/2020/05/22/hexo-hueman-%ED%85%8C%EB%A7%88%EC%97%90%EC%84%9C-header-%EB%B0%98%EC%9D%91%ED%98%95%EC%9C%BC%EB%A1%9C-%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83-%EB%B3%80%EA%B2%BD%ED%95%98%EA%B8%B0/" data-id="ckai8n5ye00015dol4ja7hq3d" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -306,10 +317,12 @@
 # 불편함 발생웹페이지가 넓을 때는 현재 레이아웃이 마음에 들었지만 반응형으로 크기를 조절 하니 어디 한군데가 너무나 불편해 졌다.  
 
 
+심지어 모바일에서 블로그를 접속 해보면 확연하게 불편하다.
+
+
 디자인 1도 모르지만 어느시점에서 로고이미지와 소개글이 가운데로 왔으면 좋겠다.
-# 반응형으로 header 레이아웃 변경이제 불편함을 지워보자. 💪🏼
-t",
-        "wordCount": 393
+# 반응형으로",
+        "wordCount": 418
     }
 </script>
 
