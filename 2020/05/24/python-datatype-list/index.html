@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>리스트 (list) | O-Seok 개발일지</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="python,datatype,list" />
+    
+    <meta name="description" content="리스트는 mutable 속성을 가진다.순서 O, 중복 O, 수정 O, 삭제 O  # 리스트 선언12345a &#x3D; []b &#x3D; list()c &#x3D; [1, 2, 3, 4]d &#x3D; [10, 100, &#39;Pen&#39;, &#39;Bana&#39;, &#39;Orange&#39;]e &#x3D; [10, 100, [&#39;Pen&#39;, &#39;Bana&#39;, &#39;Orange&#39;]] 12345[][][1, 2, 3, 4][10, 100,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="리스트 (list)">
+<meta property="og:url" content="https://o-seok.github.io/2020/05/24/python-datatype-list/index.html">
+<meta property="og:site_name" content="O-Seok 개발일지">
+<meta property="og:description" content="리스트는 mutable 속성을 가진다.순서 O, 중복 O, 수정 O, 삭제 O  # 리스트 선언12345a &#x3D; []b &#x3D; list()c &#x3D; [1, 2, 3, 4]d &#x3D; [10, 100, &#39;Pen&#39;, &#39;Bana&#39;, &#39;Orange&#39;]e &#x3D; [10, 100, [&#39;Pen&#39;, &#39;Bana&#39;, &#39;Orange&#39;]] 12345[][][1, 2, 3, 4][10, 100,">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://o-seok.github.io/images/thumb/thumb_datatype_list.png">
+<meta property="article:published_time" content="2020-05-24T10:42:11.000Z">
+<meta property="article:modified_time" content="2020-05-24T10:48:02.776Z">
+<meta property="article:author" content="O-Seok">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="datatype">
+<meta property="article:tag" content="list">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://o-seok.github.io/images/thumb/thumb_datatype_list.png">
+    
+
+    
+        <link rel="alternate" href="/" title="O-Seok 개발일지" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/images/favicon_io/sparks.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    <p class="header-title-name">
+                        O-Seok 개발 성장 일지 ✨
+                    </p>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/blog/">blog</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/02-issue-TIL-%F0%9F%92%A5/">02_issue. TIL 💥</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/02-issue-TIL-%F0%9F%92%A5/python/">python</a></li></ul></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-python-datatype-list" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        리스트 (list)
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/2020/05/24/python-datatype-list/" class="article-date">
+         <time datetime="2020-05-24T10:42:11.000Z" itemprop="datePublished">2020-05-24</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/datatype/" rel="tag">datatype</a>, <a class="tag-link" href="/tags/list/" rel="tag">list</a>, <a class="tag-link" href="/tags/python/" rel="tag">python</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <blockquote>
+<p>리스트는 <code>mutable</code> 속성을 가진다.<br>순서 O, 중복 O, 수정 O, 삭제 O</p>
+</blockquote>
+<h2 id="리스트-선언"><a href="#리스트-선언" class="headerlink" title="# 리스트 선언"></a># 리스트 선언</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = []</span><br><span class="line">b = list()</span><br><span class="line">c = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line">d = [<span class="number">10</span>, <span class="number">100</span>, <span class="string">'Pen'</span>, <span class="string">'Bana'</span>, <span class="string">'Orange'</span>]</span><br><span class="line">e = [<span class="number">10</span>, <span class="number">100</span>, [<span class="string">'Pen'</span>, <span class="string">'Bana'</span>, <span class="string">'Orange'</span>]]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[]</span><br><span class="line">[]</span><br><span class="line">[1, 2, 3, 4]</span><br><span class="line">[10, 100, &#39;Pen&#39;, &#39;Bana&#39;, &#39;Orange&#39;]</span><br><span class="line">[10, 100, [&#39;Pen&#39;, &#39;Bana&#39;, &#39;Orange&#39;]]</span><br></pre></td></tr></table></figure>
+
+<h2 id="리스트-연산"><a href="#리스트-연산" class="headerlink" title="# 리스트 연산"></a># 리스트 연산</h2><p>리스트로 간단한 연산</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 연산</span></span><br><span class="line">print(c + d)</span><br><span class="line">print(c * <span class="number">3</span>, len(c * <span class="number">3</span>))</span><br><span class="line">print(str(c[<span class="number">0</span>]) + <span class="string">'hi'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[1, 2, 3, 4, 10, 100, &#39;Pen&#39;, &#39;Bana&#39;, &#39;Orange&#39;]</span><br><span class="line">[1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4] 12</span><br><span class="line">1hi</span><br></pre></td></tr></table></figure>
+
+<h2 id="리스트-인덱싱-amp-슬라이싱"><a href="#리스트-인덱싱-amp-슬라이싱" class="headerlink" title="# 리스트 인덱싱 &amp; 슬라이싱"></a># 리스트 인덱싱 &amp; 슬라이싱</h2><p>리스트에 인덱싱과 슬라이싱을 통해 원하는 값을 가져올 수 있다.</p>
+<blockquote>
+<p>인덱싱 : 값이 출력<br>슬라이싱 : list 형태로 출력</p>
+</blockquote>
+<h3 id="리스트-인덱싱"><a href="#리스트-인덱싱" class="headerlink" title="리스트 인덱싱"></a><strong>리스트 인덱싱</strong></h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 인덱싱</span></span><br><span class="line">print(d[<span class="number">3</span>], d[<span class="number">-2</span>])</span><br><span class="line">print(d[<span class="number">0</span>] + d[<span class="number">1</span>])</span><br><span class="line">print(e[<span class="number">2</span>][<span class="number">1</span>])</span><br><span class="line">print(e[<span class="number">-1</span>][<span class="number">-2</span>])</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Bana Bana</span><br><span class="line">110</span><br><span class="line">Bana</span><br><span class="line">Bana</span><br></pre></td></tr></table></figure>
+
+<h3 id="리스트-슬라이싱"><a href="#리스트-슬라이싱" class="headerlink" title="리스트 슬라이싱"></a><strong>리스트 슬라이싱</strong></h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 슬라이싱</span></span><br><span class="line">print(d[<span class="number">0</span>:<span class="number">3</span>])</span><br><span class="line">print(d[<span class="number">0</span>:<span class="number">1</span>])</span><br><span class="line">print(d[<span class="number">0</span>:<span class="number">2</span>])</span><br><span class="line">print(e[<span class="number">2</span>][<span class="number">1</span>:<span class="number">3</span>])</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[10, 100, &#39;Pen&#39;]</span><br><span class="line">[10]</span><br><span class="line">[10, 100]</span><br><span class="line">[&#39;Bana&#39;, &#39;Orange&#39;]</span><br></pre></td></tr></table></figure>
+
+<h2 id="리스트-수정"><a href="#리스트-수정" class="headerlink" title="# 리스트 수정"></a># 리스트 수정</h2><p>리스트는 <code>mutable</code> 속성이므로 수정 가능하다.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = []</span><br><span class="line">b = list()</span><br><span class="line">c = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line">d = [<span class="number">10</span>, <span class="number">100</span>, <span class="string">'Pen'</span>, <span class="string">'Bana'</span>, <span class="string">'Orange'</span>]</span><br><span class="line">e = [<span class="number">10</span>, <span class="number">100</span>, [<span class="string">'Pen'</span>, <span class="string">'Bana'</span>, <span class="string">'Orange'</span>]]</span><br></pre></td></tr></table></figure>
+<h3 id="인덱스-지정-수정"><a href="#인덱스-지정-수정" class="headerlink" title="인덱스 지정 수정"></a><strong>인덱스 지정 수정</strong></h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># list 수정</span></span><br><span class="line">c[<span class="number">0</span>] = <span class="number">77</span></span><br><span class="line">print(c)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[77, 2, 3, 4]</span><br></pre></td></tr></table></figure>
+<h3 id="슬라이싱-처리-된-위치에-리스트-값으로-선언-해주면-값으로-수정된다"><a href="#슬라이싱-처리-된-위치에-리스트-값으로-선언-해주면-값으로-수정된다" class="headerlink" title="슬라이싱 처리 된 위치에 리스트 값으로 선언 해주면, 값으로 수정된다."></a><strong>슬라이싱 처리 된 위치에 리스트 값으로 선언 해주면, 값으로 수정된다.</strong></h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 슬라이싱 처리하여 값을 할당하면, list 안에 값으로 할당이 된다.</span></span><br><span class="line">c[<span class="number">1</span>:<span class="number">2</span>] = [<span class="number">100</span>, <span class="number">1000</span>, <span class="number">10000</span>]</span><br><span class="line">print(c)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1, 100, 1000, 10000, 3, 4]</span><br></pre></td></tr></table></figure>
+<h3 id="인덱스를-지정해준-위치에-리스트-값으로-선언-해주면-리스트-형태로-수정된다"><a href="#인덱스를-지정해준-위치에-리스트-값으로-선언-해주면-리스트-형태로-수정된다" class="headerlink" title="인덱스를 지정해준 위치에 리스트 값으로 선언 해주면, 리스트 형태로 수정된다."></a><strong>인덱스를 지정해준 위치에 리스트 값으로 선언 해주면, 리스트 형태로 수정된다.</strong></h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 슬라이싱 처리하여 값을 할당하는 것과 다르게, 인덱스를 지정하여 값을 할당해주면 list 형태로 중첩, 할당된다.</span></span><br><span class="line">c[<span class="number">1</span>] = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>]</span><br><span class="line">print(c)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1, [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;], 1000, 10000, 3, 4]</span><br></pre></td></tr></table></figure>
+
+<h2 id="리스트-삭제"><a href="#리스트-삭제" class="headerlink" title="# 리스트 삭제"></a># 리스트 삭제</h2><p><code>del</code> 을 이용하여 해당 인덱스 값을 삭제한다. </p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">del</span> c[<span class="number">1</span>]</span><br><span class="line">print(c)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1, 3, 4]</span><br></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">del</span> c[<span class="number">-1</span>]</span><br><span class="line">print(c)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1, 2, 3]</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="리스트-함수"><a href="#리스트-함수" class="headerlink" title="# 리스트 함수"></a># 리스트 함수</h2><p>리스트 함수가 사용 가능한 함수를 이용하여 원하는 값을 가져올 수 있다.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">y = [<span class="number">5</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">4</span>]</span><br></pre></td></tr></table></figure>
+<h3 id="append-리스트-끝에-값을-덧붙인다-데이터-타입-그대로를-붙인다"><a href="#append-리스트-끝에-값을-덧붙인다-데이터-타입-그대로를-붙인다" class="headerlink" title="append() : 리스트 끝에 값을 덧붙인다. 데이터 타입 그대로를 붙인다."></a><strong>append()</strong> : 리스트 끝에 값을 덧붙인다. 데이터 타입 그대로를 붙인다.</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ex = [<span class="number">88</span>, <span class="number">77</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 데이터 타입 그대로로 리스트 끝에 덧붙인다.</span></span><br><span class="line">y.attend(ex)</span><br><span class="line">print(y)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[5, 2, 3, 1, 4, [88, 77]]</span><br></pre></td></tr></table></figure>
+<h3 id="extend-리스트-끝에-값을-추가한다"><a href="#extend-리스트-끝에-값을-추가한다" class="headerlink" title="extend() : 리스트 끝에 값을 추가한다."></a><strong>extend()</strong> : 리스트 끝에 값을 추가한다.</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ex = [<span class="number">88</span>, <span class="number">77</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 값 그대로를 리스트 끝에 추가한다.</span></span><br><span class="line">y.extend(ex)</span><br><span class="line">print(y)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[5, 2, 3, 1, 4, 88, 77]</span><br></pre></td></tr></table></figure>
+<h3 id="sort-리스트-내의-값들을-오름차순으로-정렬시킨다"><a href="#sort-리스트-내의-값들을-오름차순으로-정렬시킨다" class="headerlink" title="sort() : 리스트 내의 값들을 오름차순으로 정렬시킨다."></a><strong>sort()</strong> : 리스트 내의 값들을 오름차순으로 정렬시킨다.</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 오름차순으로 리스트를 재정렬</span></span><br><span class="line">y.sort()</span><br><span class="line">print(y)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1, 2, 3, 4, 5]</span><br></pre></td></tr></table></figure>
+
+<h3 id="reverse-리스트-내의-값들을-역순으로-정렬시킨다"><a href="#reverse-리스트-내의-값들을-역순으로-정렬시킨다" class="headerlink" title="reverse() : 리스트 내의 값들을 역순으로 정렬시킨다."></a><strong>reverse()</strong> : 리스트 내의 값들을 역순으로 정렬시킨다.</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># reverse = 역순으로 줄세우기</span></span><br><span class="line">y.reverse()</span><br><span class="line">print(y)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[5, 4, 3, 2, 1]</span><br></pre></td></tr></table></figure>
+
+<h3 id="insert-원하는-인덱스-위치에-값을-수정한다"><a href="#insert-원하는-인덱스-위치에-값을-수정한다" class="headerlink" title="insert() : 원하는 인덱스 위치에 값을 수정한다."></a><strong>insert()</strong> : 원하는 인덱스 위치에 값을 수정한다.</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># insert = 원하는 인덱스에 값을 수정</span></span><br><span class="line">y.insert(<span class="number">2</span>, <span class="number">7</span>)</span><br><span class="line">print(y)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1, 2, 7, 4, 5]</span><br></pre></td></tr></table></figure>
+
+<h3 id="remove-원하는-값을-찾아-삭제한다"><a href="#remove-원하는-값을-찾아-삭제한다" class="headerlink" title="remove() : 원하는 값을 찾아 삭제한다."></a><strong>remove()</strong> : 원하는 값을 찾아 삭제한다.</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># remove = 인덱스를 지우는게 아니라, 원하는 데이터 값을 지정하여 삭제할 수 있다.</span></span><br><span class="line">y.remove(<span class="number">2</span>)</span><br><span class="line">print(y)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1, 3, 4, 5]</span><br></pre></td></tr></table></figure>
+
+<h3 id="pop-리스트의-맨-마지막-값을-없애고-출력해준다"><a href="#pop-리스트의-맨-마지막-값을-없애고-출력해준다" class="headerlink" title="pop() : 리스트의 맨 마지막 값을 없애고, 출력해준다."></a><strong>pop()</strong> : 리스트의 맨 마지막 값을 없애고, 출력해준다.</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># pop = 맨 마지막 값을 꺼내고, 나머지를 출력한다.</span></span><br><span class="line">y.pop()</span><br><span class="line">print(y)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1, 2, 3, 4]</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="리스트-comprehention"><a href="#리스트-comprehention" class="headerlink" title="# 리스트 comprehention"></a># 리스트 comprehention</h2><p>리스트를 간결하고 간편하게 선언하는 방법이다.</p>
+<p>먼저 일반적인 리스트 선언은 해보면,</p>
+<blockquote>
+<p>range(1, 100) : 1 부터 99까지 생성해주는 함수 </p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 일반적인 list 만들기</span></span><br><span class="line">numbers = []</span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">100</span>):</span><br><span class="line">  numbers.append(n)</span><br><span class="line"></span><br><span class="line">print(numbers)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99]</span><br></pre></td></tr></table></figure>
+<p><code>comprehention</code> 으로 간단하게 똑같은 리스트를 선언할 수 있다.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">numbers2 = [x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">100</span>)]</span><br><span class="line">print(numbers2)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99]</span><br></pre></td></tr></table></figure>
+
+<h3 id="리스트-comprehention에서-if-문도-가능하다"><a href="#리스트-comprehention에서-if-문도-가능하다" class="headerlink" title="리스트 comprehention에서 if 문도 가능하다."></a>리스트 comprehention에서 if 문도 가능하다.</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># list 컴프리헨션 안에 if 문도 가능하다.</span></span><br><span class="line">p5 = [<span class="string">'갑'</span>, <span class="string">'을'</span>, <span class="string">'병'</span>, <span class="string">'정'</span>]</span><br><span class="line">rep5 = [v <span class="keyword">for</span> v <span class="keyword">in</span> p5 <span class="keyword">if</span> v != <span class="string">'정'</span>]</span><br><span class="line">print(rep5)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[&#39;갑&#39;, &#39;을&#39;, &#39;병&#39;]</span><br></pre></td></tr></table></figure>
+
+
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://o-seok.github.io/2020/05/24/python-datatype-list/" data-id="ckakxvf19000979olfw7ndbt9" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "O-Seok"
+        },
+        "headline": "리스트 (list)",
+        "image": "https://O-Seok.github.io/images/thumb/thumb_datatype_list.png",
+        "keywords": "python datatype list",
+        "genre": "01_studying. TIL 👨🏻‍💻 python",
+        "datePublished": "2020-05-24",
+        "dateCreated": "2020-05-24",
+        "dateModified": "2020-05-24",
+        "url": "https://O-Seok.github.io/2020/05/24/python-datatype-list/",
+        "description": "
+리스트는 mutable 속성을 가진다.순서 O, 중복 O, 수정 O, 삭제 O
+
+# 리스트 선언12345a = []b = list()c = [1, 2, 3, 4]d = [10, 100, 'Pen', 'Bana', 'Orange']e = [10, 100, ['Pen', 'Bana', 'Orange']]
+12345[][][1, 2, 3, 4][10, 100,",
+        "wordCount": 1291
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="instagram" href="https://www.instagram.com/pm.23_59/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-instagram"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/O-Seok" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2020/05/24/python-datatype-string/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">문자열 (string)</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/05/24/python-datatype-list/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumb/thumb_datatype_list.png)" alt="리스트 (list)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a></p>
+                            <p class="item-title"><a href="/2020/05/24/python-datatype-list/" class="title">리스트 (list)</a></p>
+                            <p class="item-date"><time datetime="2020-05-24T10:42:11.000Z" itemprop="datePublished">2020-05-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/05/24/python-datatype-string/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumb/thumb_datatype_string.png)" alt="문자열 (string)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a></p>
+                            <p class="item-title"><a href="/2020/05/24/python-datatype-string/" class="title">문자열 (string)</a></p>
+                            <p class="item-date"><time datetime="2020-05-24T10:34:11.000Z" itemprop="datePublished">2020-05-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/05/24/python-datatype/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumb/thumb_datatype.png)" alt="데이터 타입" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a></p>
+                            <p class="item-title"><a href="/2020/05/24/python-datatype/" class="title">데이터 타입</a></p>
+                            <p class="item-date"><time datetime="2020-05-24T10:26:25.000Z" itemprop="datePublished">2020-05-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/05/24/function-lambda/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumb/thumb_lambda.png)" alt="람다식 (lambda)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a></p>
+                            <p class="item-title"><a href="/2020/05/24/function-lambda/" class="title">람다식 (lambda)</a></p>
+                            <p class="item-date"><time datetime="2020-05-24T10:11:41.000Z" itemprop="datePublished">2020-05-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/05/22/change-layout-in-hueman-theme-of-hexo/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumb/thumb_layout.png)" alt="hexo hueman 테마에서 반응형으로 header 레이아웃 변경하기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/blog/">blog</a></p>
+                            <p class="item-title"><a href="/2020/05/22/change-layout-in-hueman-theme-of-hexo/" class="title">hexo hueman 테마에서 반응형으로 header 레이아웃 변경하기</a></p>
+                            <p class="item-date"><time datetime="2020-05-22T13:46:16.000Z" itemprop="datePublished">2020-05-22</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/blog/">blog</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a><span class="category-list-count">7</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/02-issue-TIL-%F0%9F%92%A5/">02_issue. TIL 💥</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/02-issue-TIL-%F0%9F%92%A5/python/">python</a><span class="category-list-count">1</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">10</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/UnicodeDecodeError/" rel="tag">UnicodeDecodeError</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/" rel="tag">blog</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/class/" rel="tag">class</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv/" rel="tag">csv</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datatype/" rel="tag">datatype</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/function/" rel="tag">function</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/" rel="tag">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hueman/" rel="tag">hueman</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lambda/" rel="tag">lambda</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/layout/" rel="tag">layout</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list/" rel="tag">list</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/print/" rel="tag">print</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/string/" rel="tag">string</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/theme/" rel="tag">theme</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/UnicodeDecodeError/" style="font-size: 10px;">UnicodeDecodeError</a> <a href="/tags/blog/" style="font-size: 13.33px;">blog</a> <a href="/tags/class/" style="font-size: 10px;">class</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/csv/" style="font-size: 10px;">csv</a> <a href="/tags/datatype/" style="font-size: 16.67px;">datatype</a> <a href="/tags/function/" style="font-size: 13.33px;">function</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/hueman/" style="font-size: 10px;">hueman</a> <a href="/tags/lambda/" style="font-size: 10px;">lambda</a> <a href="/tags/layout/" style="font-size: 10px;">layout</a> <a href="/tags/list/" style="font-size: 10px;">list</a> <a href="/tags/print/" style="font-size: 10px;">print</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/string/" style="font-size: 10px;">string</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <!-- <a href="/" class="logo"></a> -->
+                </h1>
+                <p>&copy; 2020 O-Seok</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://o-seok.github.io/2020/05/24/python-datatype-list/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
