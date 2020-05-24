@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>반복문 (for) | O-Seok 개발일지</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="python,for" />
+    
+    <meta name="description" content="for문은 제어문에서 반복문이다.범위를 주어주고 범위동안 반복하면서 데이터 처리를 할 때 사용한다. 기본형식12for () in (조건범위):  (범위동안 반복하면서 처리하는 동작) 간단한 예를 보면 123# 0 ~ 9 까지 반복을 하고 싶다면,for v2 in range(10):  print(&#39;v2 is : &#39;,v2) 12345678910111213141">
+<meta property="og:type" content="article">
+<meta property="og:title" content="반복문 (for)">
+<meta property="og:url" content="https://o-seok.github.io/2020/05/24/python-control-for/index.html">
+<meta property="og:site_name" content="O-Seok 개발일지">
+<meta property="og:description" content="for문은 제어문에서 반복문이다.범위를 주어주고 범위동안 반복하면서 데이터 처리를 할 때 사용한다. 기본형식12for () in (조건범위):  (범위동안 반복하면서 처리하는 동작) 간단한 예를 보면 123# 0 ~ 9 까지 반복을 하고 싶다면,for v2 in range(10):  print(&#39;v2 is : &#39;,v2) 12345678910111213141">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://o-seok.github.io/images/thumb/thumb_control_for.png">
+<meta property="article:published_time" content="2020-05-24T11:24:18.000Z">
+<meta property="article:modified_time" content="2020-05-24T11:25:07.665Z">
+<meta property="article:author" content="O-Seok">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="for">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://o-seok.github.io/images/thumb/thumb_control_for.png">
+    
+
+    
+        <link rel="alternate" href="/" title="O-Seok 개발일지" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/images/favicon_io/sparks.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    <p class="header-title-name">
+                        O-Seok 개발 성장 일지 ✨
+                    </p>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/blog/">blog</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/02-issue-TIL-%F0%9F%92%A5/">02_issue. TIL 💥</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/02-issue-TIL-%F0%9F%92%A5/python/">python</a></li></ul></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-python-control-for" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        반복문 (for)
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/2020/05/24/python-control-for/" class="article-date">
+         <time datetime="2020-05-24T11:24:18.000Z" itemprop="datePublished">2020-05-24</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/for/" rel="tag">for</a>, <a class="tag-link" href="/tags/python/" rel="tag">python</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p>for문은 제어문에서 반복문이다.<br>범위를 주어주고 범위동안 반복하면서 데이터 처리를 할 때 사용한다.</p>
+<h3 id="기본형식"><a href="#기본형식" class="headerlink" title="기본형식"></a><strong>기본형식</strong></h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> () <span class="keyword">in</span> (조건범위):</span><br><span class="line">  (범위동안 반복하면서 처리하는 동작)</span><br></pre></td></tr></table></figure>
+<p>간단한 예를 보면</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 0 ~ 9 까지 반복을 하고 싶다면,</span></span><br><span class="line"><span class="keyword">for</span> v2 <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">  print(<span class="string">'v2 is : '</span>,v2)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">v2 is :  0</span><br><span class="line">v2 is :  1</span><br><span class="line">v2 is :  2</span><br><span class="line">v2 is :  3</span><br><span class="line">v2 is :  4</span><br><span class="line">v2 is :  5</span><br><span class="line">v2 is :  6</span><br><span class="line">v2 is :  7</span><br><span class="line">v2 is :  8</span><br><span class="line">v2 is :  9</span><br><span class="line">v3 is :  1</span><br><span class="line">v3 is :  2</span><br><span class="line">v3 is :  3</span><br><span class="line">v3 is :  4</span><br><span class="line">v3 is :  5</span><br><span class="line">v3 is :  6</span><br><span class="line">v3 is :  7</span><br><span class="line">v3 is :  8</span><br><span class="line">v3 is :  9</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1부터 100까지의 합</span></span><br><span class="line">print()</span><br><span class="line">print(<span class="string">'1부터 100까지의 합 구하기 ( for문 이용 )'</span>)</span><br><span class="line">score = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> num <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">101</span>):</span><br><span class="line">  score += num  </span><br><span class="line"></span><br><span class="line">print(score)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5050</span><br></pre></td></tr></table></figure>
+
+<h2 id="시퀀스-순서가-있는-자료형-반복"><a href="#시퀀스-순서가-있는-자료형-반복" class="headerlink" title="# 시퀀스 (순서가 있는) 자료형 반복"></a># 시퀀스 (순서가 있는) 자료형 반복</h2><p>문자열, 리스트, 튜플, 집합, 딕셔너리</p>
+<h3 id="리스트"><a href="#리스트" class="headerlink" title="리스트"></a><strong>리스트</strong></h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">names = [<span class="string">'Kim'</span>, <span class="string">'Park'</span>, <span class="string">'Cho'</span>, <span class="string">'Yoo'</span>, <span class="string">'Choi'</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> v <span class="keyword">in</span> names:</span><br><span class="line">  print(<span class="string">'You are : "'</span>, v)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">You are : &quot; Kim</span><br><span class="line">You are : &quot; Park</span><br><span class="line">You are : &quot; Cho</span><br><span class="line">You are : &quot; Yoo</span><br><span class="line">You are : &quot; Choi</span><br></pre></td></tr></table></figure>
+
+<h3 id="문자열"><a href="#문자열" class="headerlink" title="문자열"></a><strong>문자열</strong></h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">word = <span class="string">"dreams"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> s <span class="keyword">in</span> word:</span><br><span class="line">  print(<span class="string">'word : "'</span>, s)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">word : &quot; d</span><br><span class="line">word : &quot; r</span><br><span class="line">word : &quot; e</span><br><span class="line">word : &quot; a</span><br><span class="line">word : &quot; m</span><br><span class="line">word : &quot; s</span><br></pre></td></tr></table></figure>
+
+<h3 id="딕셔너리"><a href="#딕셔너리" class="headerlink" title="딕셔너리"></a><strong>딕셔너리</strong></h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">my_info = &#123;</span><br><span class="line">  <span class="string">'name'</span>: <span class="string">'Kim'</span>,</span><br><span class="line">  <span class="string">'age'</span>: <span class="number">33</span>,</span><br><span class="line">  <span class="string">'city'</span>: <span class="string">'Seoul'</span> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 기본 값은 키를 리턴한다.</span></span><br><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> my_info:</span><br><span class="line">  print(<span class="string">'my_info'</span>, key)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">my_info name</span><br><span class="line">my_info age</span><br><span class="line">my_info city</span><br></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 값</span></span><br><span class="line"><span class="keyword">for</span> value <span class="keyword">in</span> my_info.values():</span><br><span class="line">  print(<span class="string">'my_info_value'</span>, value)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">my_info_value Kim</span><br><span class="line">my_info_value 33</span><br><span class="line">my_info_value Seoul</span><br></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 키</span></span><br><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> my_info.keys():</span><br><span class="line">  print(<span class="string">'my_info_key'</span>, value)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">my_info_key Seoul</span><br><span class="line">my_info_key Seoul</span><br><span class="line">my_info_key Seoul</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 키 + 값</span></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> my_info.items():</span><br><span class="line">  print(<span class="string">'my_info_item'</span>, item)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">my_info_item (&#39;name&#39;, &#39;Kim&#39;)</span><br><span class="line">my_info_item (&#39;age&#39;, 33)</span><br><span class="line">my_info_item (&#39;city&#39;, &#39;Seoul&#39;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="break"><a href="#break" class="headerlink" title="# break"></a># break</h2><p>for문 안에서 사용된다.<br>내가 찾고자 하는 값이 반복문으로 돌아가는 중간에 있다면?<br>내가 의도하는, 원하는 조건, 값이 나왔을 때 반복문에서 나올 때 사용한다.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">numbers = [<span class="number">14</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">10</span>, <span class="number">24</span>, <span class="number">17</span>, <span class="number">2</span>, <span class="number">33</span>, <span class="number">15</span>, <span class="number">34</span>, <span class="number">44</span>, <span class="number">38</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> num <span class="keyword">in</span> numbers:</span><br><span class="line">  <span class="keyword">if</span> num == <span class="number">33</span>:</span><br><span class="line">    print(<span class="string">'found : 33 !'</span>)</span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">'not found : 33 !!'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">not found : 33 !!</span><br><span class="line">not found : 33 !!</span><br><span class="line">not found : 33 !!</span><br><span class="line">not found : 33 !!</span><br><span class="line">not found : 33 !!</span><br><span class="line">not found : 33 !!</span><br><span class="line">not found : 33 !!</span><br><span class="line">not found : 33 !!</span><br><span class="line">found : 33 !</span><br></pre></td></tr></table></figure>
+
+<h2 id="for-else"><a href="#for-else" class="headerlink" title="# for - else"></a># for - else</h2><p>for 문을 다 실행하고 마지막에 else가 실행이 된다.<br>for 문 안에 break 구문이 작동이 되었다면, else 구문이 실행이 안된다.<br>break문이 작동되지 않았다면 마지막에 else 구문이 작동된다.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">numbers2 = [<span class="number">14</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">10</span>, <span class="number">24</span>, <span class="number">17</span>, <span class="number">2</span>, <span class="number">37</span>, <span class="number">15</span>, <span class="number">34</span>, <span class="number">44</span>, <span class="number">38</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> num <span class="keyword">in</span> numbers2:</span><br><span class="line">  <span class="keyword">if</span> num == <span class="number">33</span>:</span><br><span class="line">    print(<span class="string">'found : 33 !'</span>)</span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line">  <span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">'not found : 33 !!'</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">  print(<span class="string">'not found 33 ..............'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">not found : 33 !!</span><br><span class="line">not found : 33 !!</span><br><span class="line">not found : 33 !!</span><br><span class="line">not found : 33 !!</span><br><span class="line">not found : 33 !!</span><br><span class="line">not found : 33 !!</span><br><span class="line">not found : 33 !!</span><br><span class="line">not found : 33 !!</span><br><span class="line">not found : 33 !!</span><br><span class="line">not found : 33 !!</span><br><span class="line">not found : 33 !!</span><br><span class="line">not found : 33 !!</span><br><span class="line">not found : 33 !!</span><br><span class="line">not found 33 ..............</span><br></pre></td></tr></table></figure>
+
+<h2 id="continue"><a href="#continue" class="headerlink" title="# continue"></a># continue</h2><p>for문 안에 사용된다.<br>continue를 만나면 그 값은 넘어가고 다음 순서대로 간다.<br>조건문이 아닌 for문, 반복문으로 간다.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">lt = [<span class="string">'1'</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="literal">True</span>, <span class="number">4.3</span>, complex(<span class="number">4</span>)]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> v <span class="keyword">in</span> lt:</span><br><span class="line">  <span class="keyword">if</span> type(v) <span class="keyword">is</span> float:</span><br><span class="line">    <span class="keyword">continue</span></span><br><span class="line">  print(<span class="string">'타입 : '</span>, type(v))</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">  print(<span class="string">'End'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">타입 :  &lt;class &#39;str&#39;&gt;</span><br><span class="line">타입 :  &lt;class &#39;int&#39;&gt;</span><br><span class="line">타입 :  &lt;class &#39;int&#39;&gt;</span><br><span class="line">타입 :  &lt;class &#39;bool&#39;&gt;</span><br><span class="line">타입 :  &lt;class &#39;complex&#39;&gt;</span><br><span class="line">End</span><br></pre></td></tr></table></figure>
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://o-seok.github.io/2020/05/24/python-control-for/" data-id="ckakzrjmu000ah1ol2ftd6iuj" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "O-Seok"
+        },
+        "headline": "반복문 (for)",
+        "image": "https://O-Seok.github.io/images/thumb/thumb_control_for.png",
+        "keywords": "python for",
+        "genre": "01_studying. TIL 👨🏻‍💻 python",
+        "datePublished": "2020-05-24",
+        "dateCreated": "2020-05-24",
+        "dateModified": "2020-05-24",
+        "url": "https://O-Seok.github.io/2020/05/24/python-control-for/",
+        "description": "for문은 제어문에서 반복문이다.범위를 주어주고 범위동안 반복하면서 데이터 처리를 할 때 사용한다.
+기본형식12for () in (조건범위):  (범위동안 반복하면서 처리하는 동작)
+간단한 예를 보면
+123# 0 ~ 9 까지 반복을 하고 싶다면,for v2 in range(10):  print('v2 is : ',v2)
+12345678910111213141",
+        "wordCount": 1069
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="instagram" href="https://www.instagram.com/pm.23_59/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-instagram"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/O-Seok" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2020/05/24/python-control-while/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            반복문 (while)
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2020/05/24/python-control-if/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">조건문 (if)</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/05/24/python-class-inheritance/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumb/thumb_class_inheritance.png)" alt="상속 (inheritance)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a></p>
+                            <p class="item-title"><a href="/2020/05/24/python-class-inheritance/" class="title">상속 (inheritance)</a></p>
+                            <p class="item-date"><time datetime="2020-05-24T11:35:30.000Z" itemprop="datePublished">2020-05-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/05/24/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%ED%81%B4%EB%9E%98%EC%8A%A4/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumb/thumb_class.png)" alt="클래스 (class)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a></p>
+                            <p class="item-title"><a href="/2020/05/24/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%ED%81%B4%EB%9E%98%EC%8A%A4/" class="title">클래스 (class)</a></p>
+                            <p class="item-date"><time datetime="2020-05-24T11:31:45.000Z" itemprop="datePublished">2020-05-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/05/24/python-control-while/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumb/thumb_control_while.png)" alt="반복문 (while)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a></p>
+                            <p class="item-title"><a href="/2020/05/24/python-control-while/" class="title">반복문 (while)</a></p>
+                            <p class="item-date"><time datetime="2020-05-24T11:26:26.000Z" itemprop="datePublished">2020-05-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/05/24/python-control-for/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumb/thumb_control_for.png)" alt="반복문 (for)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a></p>
+                            <p class="item-title"><a href="/2020/05/24/python-control-for/" class="title">반복문 (for)</a></p>
+                            <p class="item-date"><time datetime="2020-05-24T11:24:18.000Z" itemprop="datePublished">2020-05-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/05/24/python-control-if/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumb/thumb_control_if.png)" alt="조건문 (if)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a></p>
+                            <p class="item-title"><a href="/2020/05/24/python-control-if/" class="title">조건문 (if)</a></p>
+                            <p class="item-date"><time datetime="2020-05-24T11:18:55.000Z" itemprop="datePublished">2020-05-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><span class="category-list-count">16</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/blog/">blog</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a><span class="category-list-count">14</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/02-issue-TIL-%F0%9F%92%A5/">02_issue. TIL 💥</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/02-issue-TIL-%F0%9F%92%A5/python/">python</a><span class="category-list-count">1</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">17</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/UnicodeDecodeError/" rel="tag">UnicodeDecodeError</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/" rel="tag">blog</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/class/" rel="tag">class</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv/" rel="tag">csv</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datatype/" rel="tag">datatype</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dict/" rel="tag">dict</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/for/" rel="tag">for</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/function/" rel="tag">function</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/" rel="tag">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hueman/" rel="tag">hueman</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/if/" rel="tag">if</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lambda/" rel="tag">lambda</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/layout/" rel="tag">layout</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list/" rel="tag">list</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/print/" rel="tag">print</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/set/" rel="tag">set</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/string/" rel="tag">string</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/theme/" rel="tag">theme</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tuple/" rel="tag">tuple</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/while/" rel="tag">while</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/UnicodeDecodeError/" style="font-size: 10px;">UnicodeDecodeError</a> <a href="/tags/blog/" style="font-size: 13.33px;">blog</a> <a href="/tags/class/" style="font-size: 13.33px;">class</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/csv/" style="font-size: 10px;">csv</a> <a href="/tags/datatype/" style="font-size: 16.67px;">datatype</a> <a href="/tags/dict/" style="font-size: 10px;">dict</a> <a href="/tags/for/" style="font-size: 10px;">for</a> <a href="/tags/function/" style="font-size: 13.33px;">function</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/hueman/" style="font-size: 10px;">hueman</a> <a href="/tags/if/" style="font-size: 10px;">if</a> <a href="/tags/lambda/" style="font-size: 10px;">lambda</a> <a href="/tags/layout/" style="font-size: 10px;">layout</a> <a href="/tags/list/" style="font-size: 10px;">list</a> <a href="/tags/print/" style="font-size: 10px;">print</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/set/" style="font-size: 10px;">set</a> <a href="/tags/string/" style="font-size: 10px;">string</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/tuple/" style="font-size: 10px;">tuple</a> <a href="/tags/while/" style="font-size: 10px;">while</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <!-- <a href="/" class="logo"></a> -->
+                </h1>
+                <p>&copy; 2020 O-Seok</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://o-seok.github.io/2020/05/24/python-control-for/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

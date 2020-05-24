@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>딕셔너리 (dict) | O-Seok 개발일지</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="python,datatype,dict" />
+    
+    <meta name="description" content="딕셔너리는 mutable 속성을 가진다.중복 X (key: 중복 X, value: 중복 O), 순서 X, 수정 O, 삭제 O  # 딕셔너리 선언딕셔너리는 다음과 같은 방법으로 선언 해줄 수 있다. 12345678a &#x3D; &amp;#123;&#39;name&#39;: &#39;Jeong&#39;, &#39;phone&#39;: &#39;010-9999-9999&#39;, &#39;birth&#39;: &#39;890928&#39;&amp;#125;b &#x3D; &amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="딕셔너리 (dict)">
+<meta property="og:url" content="https://o-seok.github.io/2020/05/24/python-datatype-dict/index.html">
+<meta property="og:site_name" content="O-Seok 개발일지">
+<meta property="og:description" content="딕셔너리는 mutable 속성을 가진다.중복 X (key: 중복 X, value: 중복 O), 순서 X, 수정 O, 삭제 O  # 딕셔너리 선언딕셔너리는 다음과 같은 방법으로 선언 해줄 수 있다. 12345678a &#x3D; &amp;#123;&#39;name&#39;: &#39;Jeong&#39;, &#39;phone&#39;: &#39;010-9999-9999&#39;, &#39;birth&#39;: &#39;890928&#39;&amp;#125;b &#x3D; &amp;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://o-seok.github.io/images/thumb/thumb_datatype_dict.png">
+<meta property="article:published_time" content="2020-05-24T10:55:50.000Z">
+<meta property="article:modified_time" content="2020-05-24T10:56:38.489Z">
+<meta property="article:author" content="O-Seok">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="datatype">
+<meta property="article:tag" content="dict">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://o-seok.github.io/images/thumb/thumb_datatype_dict.png">
+    
+
+    
+        <link rel="alternate" href="/" title="O-Seok 개발일지" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/images/favicon_io/sparks.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    <p class="header-title-name">
+                        O-Seok 개발 성장 일지 ✨
+                    </p>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/blog/">blog</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/02-issue-TIL-%F0%9F%92%A5/">02_issue. TIL 💥</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/02-issue-TIL-%F0%9F%92%A5/python/">python</a></li></ul></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-python-datatype-dict" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        딕셔너리 (dict)
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/2020/05/24/python-datatype-dict/" class="article-date">
+         <time datetime="2020-05-24T10:55:50.000Z" itemprop="datePublished">2020-05-24</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/datatype/" rel="tag">datatype</a>, <a class="tag-link" href="/tags/dict/" rel="tag">dict</a>, <a class="tag-link" href="/tags/python/" rel="tag">python</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <blockquote>
+<p>딕셔너리는 <code>mutable</code> 속성을 가진다.<br>중복 X (key: 중복 X, value: 중복 O), 순서 X, 수정 O, 삭제 O</p>
+</blockquote>
+<h2 id="딕셔너리-선언"><a href="#딕셔너리-선언" class="headerlink" title="# 딕셔너리 선언"></a># 딕셔너리 선언</h2><p>딕셔너리는 다음과 같은 방법으로 선언 해줄 수 있다.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a = &#123;<span class="string">'name'</span>: <span class="string">'Jeong'</span>, <span class="string">'phone'</span>: <span class="string">'010-9999-9999'</span>, <span class="string">'birth'</span>: <span class="string">'890928'</span>&#125;</span><br><span class="line">b = &#123;<span class="number">0</span>: <span class="string">'Hello Python'</span>, <span class="number">1</span>: <span class="string">'Hello Coding'</span>&#125;</span><br><span class="line">c = &#123;<span class="string">'arr'</span>:[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]&#125;</span><br><span class="line"></span><br><span class="line">print(type(a))</span><br><span class="line">print(a)</span><br><span class="line">print(b)</span><br><span class="line">print(c)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;class &#39;dict&#39;&gt;</span><br><span class="line">&#123;&#39;name&#39;: &#39;Jeong&#39;, &#39;phone&#39;: &#39;010-9999-9999&#39;, &#39;birth&#39;: &#39;890928&#39;&#125;</span><br><span class="line">&#123;0: &#39;Hello Python&#39;, 1: &#39;Hello Coding&#39;&#125;</span><br><span class="line">&#123;&#39;arr&#39;: [1, 2, 3, 4, 5]&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="딕셔너리-출력"><a href="#딕셔너리-출력" class="headerlink" title="# 딕셔너리 출력"></a># 딕셔너리 출력</h2><p>특정 key를 선택하여 value 값을 출력 할 수도<br>get() 함수로 key를 지정하여 또는 슬라이싱을 통해서 값을 출력 할 수도 있다.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">print(a[<span class="string">'name'</span>])</span><br><span class="line">print(a.get(<span class="string">'name'</span>))</span><br><span class="line">print(a.get(<span class="string">'address'</span>))</span><br><span class="line">print(c.get(<span class="string">'arr'</span>))</span><br><span class="line">print(c.get(<span class="string">'arr'</span>)[<span class="number">1</span>:<span class="number">3</span>])</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Jeong</span><br><span class="line">Jeong</span><br><span class="line">None</span><br><span class="line">[1, 2, 3, 4, 5]</span><br><span class="line">[2, 3]</span><br></pre></td></tr></table></figure>
+
+<p>boolean 출력 값을 출력 할 수도 있다.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="number">2</span> <span class="keyword">in</span> b)</span><br><span class="line">print(<span class="number">2</span> <span class="keyword">not</span> <span class="keyword">in</span> b)</span><br><span class="line">print(<span class="string">'name'</span> <span class="keyword">in</span> a)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">False</span><br><span class="line">True</span><br><span class="line">True</span><br></pre></td></tr></table></figure>
+<h2 id="딕셔너리-추가"><a href="#딕셔너리-추가" class="headerlink" title="# 딕셔너리 추가"></a># 딕셔너리 추가</h2><p>직관적으로 추가를 할 수 있다.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a[<span class="string">'address'</span>] = <span class="string">'Seoul'</span></span><br><span class="line">print(a)</span><br><span class="line">a[<span class="string">'rank'</span>] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">a[<span class="string">'rank2'</span>] = (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>,)</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#39;name&#39;: &#39;Jeong&#39;, &#39;phone&#39;: &#39;010-9999-9999&#39;, &#39;birth&#39;: &#39;890928&#39;, &#39;address&#39;: &#39;Seoul&#39;&#125;</span><br><span class="line">&#123;&#39;name&#39;: &#39;Jeong&#39;, &#39;phone&#39;: &#39;010-9999-9999&#39;, &#39;birth&#39;: &#39;890928&#39;, &#39;address&#39;: &#39;Seoul&#39;, &#39;rank&#39;: [1, 2, 3], &#39;rank2&#39;: (1, 2, 3)&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="keys-values-items"><a href="#keys-values-items" class="headerlink" title="# keys(), values(), items()"></a># keys(), values(), items()</h2><h3 id="keys-values"><a href="#keys-values" class="headerlink" title="keys(), values()"></a><strong>keys(), values()</strong></h3><p>딕셔너리에서 값들을 처리할 때,<br><code>keys()</code>: key 값들만 list의 형태로 값을 반환<br><code>values()</code>: value 값들만 list의 형태로 값을 반환  </p>
+<blockquote>
+<p>⚠️ keys(), values() 값들은 list 형태의 값으로 출력 되지만, 출력 된 값들을 사용하려면 list() 함수를 이용하여 list로 형변환 하여 데이터 처리를 한다.</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(a.keys())           </span><br><span class="line">print(list(a.keys()))</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dict_keys([&#39;name&#39;, &#39;phone&#39;, &#39;birth&#39;, &#39;address&#39;, &#39;rank&#39;, &#39;rank2&#39;])</span><br><span class="line">[&#39;name&#39;, &#39;phone&#39;, &#39;birth&#39;, &#39;address&#39;, &#39;rank&#39;, &#39;rank2&#39;]</span><br></pre></td></tr></table></figure>
+
+<p>list로 형변환 이후 데이터 처리를 할 수 있다.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">temp = list(a.keys())</span><br><span class="line">print(temp[<span class="number">1</span>:<span class="number">3</span>])</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[&#39;phone&#39;, &#39;birth&#39;]</span><br></pre></td></tr></table></figure>
+
+<h3 id="items"><a href="#items" class="headerlink" title="items()"></a><strong>items()</strong></h3><p>items()는 key와 value를 한 쌍으로 갖는 튜플 형식으로 값을 반환한다.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(a.items())</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dict_items([(&#39;name&#39;, &#39;Jeong&#39;), (&#39;phone&#39;, &#39;010-9999-9999&#39;), (&#39;birth&#39;, &#39;890928&#39;), (&#39;address&#39;, &#39;Seoul&#39;), (&#39;rank&#39;, [1, 2, 3]), (&#39;rank2&#39;, (1, 2, 3))])</span><br></pre></td></tr></table></figure>
+<p>list로 형변환을 해준 후</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(list(a.items()))</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[(&#39;name&#39;, &#39;Jeong&#39;), (&#39;phone&#39;, &#39;010-9999-9999&#39;), (&#39;birth&#39;, &#39;890928&#39;), (&#39;address&#39;, &#39;Seoul&#39;), (&#39;rank&#39;, [1, 2, 3]), (&#39;rank2&#39;, (1, 2, 3))]</span><br></pre></td></tr></table></figure>
+<p>원하는 데이터 처리를 할 수 있다.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tems =  list(a.items())</span><br><span class="line">print(tems[<span class="number">0</span>])</span><br><span class="line">print(tems[<span class="number">0</span>][<span class="number">0</span>])</span><br><span class="line">print(tems[<span class="number">0</span>][<span class="number">0</span>][:<span class="number">2</span>])</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(&#39;name&#39;, &#39;Jeong&#39;)</span><br><span class="line">name</span><br><span class="line">na</span><br></pre></td></tr></table></figure>
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://o-seok.github.io/2020/05/24/python-datatype-dict/" data-id="ckakzrjmy000hh1ol5gjqh944" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "O-Seok"
+        },
+        "headline": "딕셔너리 (dict)",
+        "image": "https://O-Seok.github.io/images/thumb/thumb_datatype_dict.png",
+        "keywords": "python datatype dict",
+        "genre": "01_studying. TIL 👨🏻‍💻 python",
+        "datePublished": "2020-05-24",
+        "dateCreated": "2020-05-24",
+        "dateModified": "2020-05-24",
+        "url": "https://O-Seok.github.io/2020/05/24/python-datatype-dict/",
+        "description": "
+딕셔너리는 mutable 속성을 가진다.중복 X (key: 중복 X, value: 중복 O), 순서 X, 수정 O, 삭제 O
+
+# 딕셔너리 선언딕셔너리는 다음과 같은 방법으로 선언 해줄 수 있다.
+12345678a = &#123;'name': 'Jeong', 'phone': '010-9999-9999', 'birth': '890928'&#125;b = &",
+        "wordCount": 522
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="instagram" href="https://www.instagram.com/pm.23_59/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-instagram"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/O-Seok" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2020/05/24/python-datatype-set/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            집합 (set)
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2020/05/24/python-datatype-tuple/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">튜플 (tuple)</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/05/24/python-class-inheritance/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumb/thumb_class_inheritance.png)" alt="상속 (inheritance)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a></p>
+                            <p class="item-title"><a href="/2020/05/24/python-class-inheritance/" class="title">상속 (inheritance)</a></p>
+                            <p class="item-date"><time datetime="2020-05-24T11:35:30.000Z" itemprop="datePublished">2020-05-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/05/24/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%ED%81%B4%EB%9E%98%EC%8A%A4/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumb/thumb_class.png)" alt="클래스 (class)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a></p>
+                            <p class="item-title"><a href="/2020/05/24/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%ED%81%B4%EB%9E%98%EC%8A%A4/" class="title">클래스 (class)</a></p>
+                            <p class="item-date"><time datetime="2020-05-24T11:31:45.000Z" itemprop="datePublished">2020-05-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/05/24/python-control-while/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumb/thumb_control_while.png)" alt="반복문 (while)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a></p>
+                            <p class="item-title"><a href="/2020/05/24/python-control-while/" class="title">반복문 (while)</a></p>
+                            <p class="item-date"><time datetime="2020-05-24T11:26:26.000Z" itemprop="datePublished">2020-05-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/05/24/python-control-for/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumb/thumb_control_for.png)" alt="반복문 (for)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a></p>
+                            <p class="item-title"><a href="/2020/05/24/python-control-for/" class="title">반복문 (for)</a></p>
+                            <p class="item-date"><time datetime="2020-05-24T11:24:18.000Z" itemprop="datePublished">2020-05-24</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/05/24/python-control-if/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumb/thumb_control_if.png)" alt="조건문 (if)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a></p>
+                            <p class="item-title"><a href="/2020/05/24/python-control-if/" class="title">조건문 (if)</a></p>
+                            <p class="item-date"><time datetime="2020-05-24T11:18:55.000Z" itemprop="datePublished">2020-05-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><span class="category-list-count">16</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/blog/">blog</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a><span class="category-list-count">14</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/02-issue-TIL-%F0%9F%92%A5/">02_issue. TIL 💥</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/02-issue-TIL-%F0%9F%92%A5/python/">python</a><span class="category-list-count">1</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">17</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/UnicodeDecodeError/" rel="tag">UnicodeDecodeError</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/" rel="tag">blog</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/class/" rel="tag">class</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv/" rel="tag">csv</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datatype/" rel="tag">datatype</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dict/" rel="tag">dict</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/for/" rel="tag">for</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/function/" rel="tag">function</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/" rel="tag">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hueman/" rel="tag">hueman</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/if/" rel="tag">if</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lambda/" rel="tag">lambda</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/layout/" rel="tag">layout</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list/" rel="tag">list</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/print/" rel="tag">print</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/set/" rel="tag">set</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/string/" rel="tag">string</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/theme/" rel="tag">theme</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tuple/" rel="tag">tuple</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/while/" rel="tag">while</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/UnicodeDecodeError/" style="font-size: 10px;">UnicodeDecodeError</a> <a href="/tags/blog/" style="font-size: 13.33px;">blog</a> <a href="/tags/class/" style="font-size: 13.33px;">class</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/csv/" style="font-size: 10px;">csv</a> <a href="/tags/datatype/" style="font-size: 16.67px;">datatype</a> <a href="/tags/dict/" style="font-size: 10px;">dict</a> <a href="/tags/for/" style="font-size: 10px;">for</a> <a href="/tags/function/" style="font-size: 13.33px;">function</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/hueman/" style="font-size: 10px;">hueman</a> <a href="/tags/if/" style="font-size: 10px;">if</a> <a href="/tags/lambda/" style="font-size: 10px;">lambda</a> <a href="/tags/layout/" style="font-size: 10px;">layout</a> <a href="/tags/list/" style="font-size: 10px;">list</a> <a href="/tags/print/" style="font-size: 10px;">print</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/set/" style="font-size: 10px;">set</a> <a href="/tags/string/" style="font-size: 10px;">string</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/tuple/" style="font-size: 10px;">tuple</a> <a href="/tags/while/" style="font-size: 10px;">while</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <!-- <a href="/" class="logo"></a> -->
+                </h1>
+                <p>&copy; 2020 O-Seok</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://o-seok.github.io/2020/05/24/python-datatype-dict/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
