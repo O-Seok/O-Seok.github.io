@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>DB 조회 | O-Seok 개발일지</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="python,sqlite,DB,table,select" />
+    
+    <meta name="description" content="등록되어 있는 데이터를 조회 해본다. users 데이터:   # DB파일 조회(없으면 새로 생성)123import sqlite3conn &#x3D; sqlite3.connect(&#39;&#x2F;Users&#x2F;claudjung&#x2F;Documents&#x2F;dev&#x2F;python_basic&#x2F;resource&#x2F;database.db&#39;) connect() 로 DB파일 위치와 파일 이름을 조회해보고, 없으면">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DB 조회">
+<meta property="og:url" content="https://o-seok.github.io/2020/05/25/python-sql-select/index.html">
+<meta property="og:site_name" content="O-Seok 개발일지">
+<meta property="og:description" content="등록되어 있는 데이터를 조회 해본다. users 데이터:   # DB파일 조회(없으면 새로 생성)123import sqlite3conn &#x3D; sqlite3.connect(&#39;&#x2F;Users&#x2F;claudjung&#x2F;Documents&#x2F;dev&#x2F;python_basic&#x2F;resource&#x2F;database.db&#39;) connect() 로 DB파일 위치와 파일 이름을 조회해보고, 없으면">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://o-seok.github.io/images/thumb/thumb_sql_select.png">
+<meta property="article:published_time" content="2020-05-25T14:32:10.000Z">
+<meta property="article:modified_time" content="2020-05-25T14:35:46.801Z">
+<meta property="article:author" content="O-Seok">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="sqlite">
+<meta property="article:tag" content="DB">
+<meta property="article:tag" content="table">
+<meta property="article:tag" content="select">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://o-seok.github.io/images/thumb/thumb_sql_select.png">
+    
+
+    
+        <link rel="alternate" href="/" title="O-Seok 개발일지" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/images/favicon_io/sparks.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    <p class="header-title-name">
+                        O-Seok 개발 성장 일지 ✨
+                    </p>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/blog/">blog</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/02-issue-TIL-%F0%9F%92%A5/">02_issue. TIL 💥</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/02-issue-TIL-%F0%9F%92%A5/python/">python</a></li></ul></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-python-sql-select" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        DB 조회
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/2020/05/25/python-sql-select/" class="article-date">
+         <time datetime="2020-05-25T14:32:10.000Z" itemprop="datePublished">2020-05-25</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/DB/" rel="tag">DB</a>, <a class="tag-link" href="/tags/python/" rel="tag">python</a>, <a class="tag-link" href="/tags/select/" rel="tag">select</a>, <a class="tag-link" href="/tags/sqlite/" rel="tag">sqlite</a>, <a class="tag-link" href="/tags/table/" rel="tag">table</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p>등록되어 있는 데이터를 조회 해본다.</p>
+<p>users 데이터:</p>
+<img src="/2020/05/25/python-sql-select/db_GUI.png" class="">
+
+<h2 id="DB파일-조회-없으면-새로-생성"><a href="#DB파일-조회-없으면-새로-생성" class="headerlink" title="# DB파일 조회(없으면 새로 생성)"></a># DB파일 조회(없으면 새로 생성)</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sqlite3</span><br><span class="line"></span><br><span class="line">conn = sqlite3.connect(<span class="string">'/Users/claudjung/Documents/dev/python_basic/resource/database.db'</span>)</span><br></pre></td></tr></table></figure>
+<p><strong><code>connect()</code></strong> 로 DB파일 위치와 파일 이름을 조회해보고, 없으면 생성해준다.</p>
+<h2 id="커서-바인딩"><a href="#커서-바인딩" class="headerlink" title="# 커서 바인딩"></a># 커서 바인딩</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c = conn.cursor()</span><br></pre></td></tr></table></figure>
+
+<p><strong><code>cursor()</code></strong><br>기본적으로 데이터의 마지막 부분을 가리키고 있다.<br>현재 커서 위치의 상태를 기억한다.</p>
+<h2 id="데이터-조회"><a href="#데이터-조회" class="headerlink" title="# 데이터 조회"></a># 데이터 조회</h2><h3 id="데이터-조회-전체"><a href="#데이터-조회-전체" class="headerlink" title="데이터 조회(전체)"></a><strong>데이터 조회(전체)</strong></h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c.execute(<span class="string">"SELECT * FROM users"</span>)</span><br></pre></td></tr></table></figure>
+<p><strong><code>execute()</code></strong> 안에 users 데이터의 전체를 조회하는 sql문을 넣어서 조회해온다.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">'all -&gt; \n'</span>, c.fetchall())</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">all -&gt; </span><br><span class="line"> [(1, &#39;Jeong&#39;, &#39;totkfa789@gmail.com&#39;, &#39;010-0000-0000&#39;, &#39;Jeong.com&#39;, &#39;2020-05-21 12:18:07&#39;), (2, &#39;Park&#39;, &#39;Park@gmail.com&#39;, &#39;010-1111-1111&#39;, &#39;Park.com&#39;, &#39;2020-05-21 12:18:07&#39;), (3, &#39;Lee&#39;, &#39;leenave.com&#39;, &#39;010-2222-2222&#39;, &#39;Lee.com&#39;, &#39;2020-05-21 12:18:07&#39;), (4, &#39;Cho&#39;, &#39;Cho@.com&#39;, &#39;010-3333-3333&#39;, &#39;Cho.com&#39;, &#39;2020-05-21 12:18:07&#39;), (5, &#39;Yoo&#39;, &#39;You@.com&#39;, &#39;010-4444-4444&#39;, &#39;You.com&#39;, &#39;2020-05-21 12:18:07&#39;)]</span><br></pre></td></tr></table></figure>
+
+<h4 id="1개-로우-선택"><a href="#1개-로우-선택" class="headerlink" title="1개 로우 선택"></a><strong>1개 로우 선택</strong></h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">'One -&gt; \n'</span>, c.fetchone())</span><br></pre></td></tr></table></figure>
+<p><strong><code>fetchone()</code></strong> : 조회해 온 데이터 중 1개를 출력한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">One -&gt; </span><br><span class="line"> (1, &#39;Jeong&#39;, &#39;totkfa789@gmail.com&#39;, &#39;010-0000-0000&#39;, &#39;Jeong.com&#39;, &#39;2020-05-21 12:18:07&#39;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="지정-로우-선택"><a href="#지정-로우-선택" class="headerlink" title="지정 로우 선택"></a><strong>지정 로우 선택</strong></h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">'Three -&gt; \n'</span>, c.fetchmany(size = <span class="number">3</span>))</span><br></pre></td></tr></table></figure>
+<p><strong><code>fetchmany(size = ?)</code></strong> : size 값을 지정해줘서 조회해 온 데이터 중 지정한 값만큼 출력한다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Three -&gt; </span><br><span class="line"> [(1, &#39;Jeong&#39;, &#39;totkfa789@gmail.com&#39;, &#39;010-0000-0000&#39;, &#39;Jeong.com&#39;, &#39;2020-05-21 12:18:07&#39;), (2, &#39;Park&#39;, &#39;Park@gmail.com&#39;, &#39;010-1111-1111&#39;, &#39;Park.com&#39;, &#39;2020-05-21 12:18:07&#39;), (3, &#39;Lee&#39;, &#39;leenave.com&#39;, &#39;010-2222-2222&#39;, &#39;Lee.com&#39;, &#39;2020-05-21 12:18:07&#39;)]</span><br></pre></td></tr></table></figure>
+
+<h4 id="cursor에-대한-이해"><a href="#cursor에-대한-이해" class="headerlink" title="cursor에 대한 이해"></a><strong>cursor에 대한 이해</strong></h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">c.execute(<span class="string">"SELECT * FROM users"</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'One -&gt; \n'</span>, c.fetchone())</span><br><span class="line">print(<span class="string">'Three -&gt; \n'</span>, c.fetchmany(size = <span class="number">3</span>))</span><br><span class="line">print(<span class="string">'all -&gt; \n'</span>, c.fetchall())</span><br></pre></td></tr></table></figure>
+<p>DB파일에서 전체 데이터를 불러온 후, 1개, 지정갯수, 전체를 차례대로 실행 한 후 결과값을 보면 위에 각각 출력한 값과는 다르게 나올 것이다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">One -&gt; </span><br><span class="line"> (1, &#39;Jeong&#39;, &#39;totkfa789@gmail.com&#39;, &#39;010-0000-0000&#39;, &#39;Jeong.com&#39;, &#39;2020-05-21 12:18:07&#39;)</span><br><span class="line"></span><br><span class="line">Three -&gt; </span><br><span class="line"> [(2, &#39;Park&#39;, &#39;Park@gmail.com&#39;, &#39;010-1111-1111&#39;, &#39;Park.com&#39;, &#39;2020-05-21 12:18:07&#39;), (3, &#39;Lee&#39;, &#39;leenave.com&#39;, &#39;010-2222-2222&#39;, &#39;Lee.com&#39;, &#39;2020-05-21 12:18:07&#39;), (4, &#39;Cho&#39;, &#39;Cho@.com&#39;, &#39;010-3333-3333&#39;, &#39;Cho.com&#39;, &#39;2020-05-21 12:18:07&#39;)]</span><br><span class="line"></span><br><span class="line">all -&gt; </span><br><span class="line"> [(5, &#39;Yoo&#39;, &#39;You@.com&#39;, &#39;010-4444-4444&#39;, &#39;You.com&#39;, &#39;2020-05-21 12:18:07&#39;)]</span><br></pre></td></tr></table></figure>
+
+<p>위와 같이 다음 순서에서부터 지정된 명령어에 따라 데이터를 가져온 것을 확인 할 수 있다.<br>이는 <strong><code>cursor가 현재 위치를 저장</code></strong> 하는 특성 때문이다.</p>
+<h3 id="데이터조회-조건부-조회"><a href="#데이터조회-조건부-조회" class="headerlink" title="데이터조회(조건부 조회)"></a><strong>데이터조회(조건부 조회)</strong></h3><p>데이터의 테이블 안의 특정 속성과 값들을 지정하여 조회 해 올 수 있다.</p>
+<p>보통 index, id, 주민번호 등 중복이 없는 primary key값들을 지정해서 가져오는게 처리하기가 좋다.  </p>
+<p>id값을 지정하여 조회 해본다.</p>
+<h4 id="튜플숫자"><a href="#튜플숫자" class="headerlink" title="튜플숫자"></a><strong>튜플숫자</strong></h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">param1 = (<span class="number">3</span>,)</span><br><span class="line">c.execute(<span class="string">"SELECT * FROM users WHERE id = ?"</span>, param1)</span><br><span class="line">print(<span class="string">'param1'</span>, c.fetchone())</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">param1 (3, &#39;Lee&#39;, &#39;leenave.com&#39;, &#39;010-2222-2222&#39;, &#39;Lee.com&#39;, &#39;2020-05-21 12:18:07&#39;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="숫자"><a href="#숫자" class="headerlink" title="숫자"></a><strong>숫자</strong></h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">param2 = <span class="number">4</span></span><br><span class="line">c.execute(<span class="string">'SELECT * FROM users WHERE id = "%s"'</span> % param2)</span><br><span class="line">print(<span class="string">'param2'</span>, c.fetchone())</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">param2 (4, &#39;Cho&#39;, &#39;Cho@.com&#39;, &#39;010-3333-3333&#39;, &#39;Cho.com&#39;, &#39;2020-05-21 12:18:07&#39;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="딕셔너리"><a href="#딕셔너리" class="headerlink" title="딕셔너리"></a><strong>딕셔너리</strong></h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c.execute(<span class="string">'SELECT * FROM users WHERE id = :Id'</span> , &#123;<span class="string">"Id"</span>: <span class="number">5</span>&#125;)</span><br><span class="line">print(<span class="string">'param3'</span>, c.fetchone())</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">param3 (5, &#39;Yoo&#39;, &#39;You@.com&#39;, &#39;010-4444-4444&#39;, &#39;You.com&#39;, &#39;2020-05-21 12:18:07&#39;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="튜플"><a href="#튜플" class="headerlink" title="튜플"></a><strong>튜플</strong></h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">param4 = (<span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line">c.execute(<span class="string">"SELECT * FROM users WHERE id IN(?,?)"</span>, param4)</span><br><span class="line">print(<span class="string">'param4'</span>, c.fetchall())</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">param4 [(3, &#39;Lee&#39;, &#39;leenave.com&#39;, &#39;010-2222-2222&#39;, &#39;Lee.com&#39;, &#39;2020-05-21 12:18:07&#39;), (5, &#39;Yoo&#39;, &#39;You@.com&#39;, &#39;010-4444-4444&#39;, &#39;You.com&#39;, &#39;2020-05-21 12:18:07&#39;)]</span><br></pre></td></tr></table></figure>
+
+<h4 id="format-스타일"><a href="#format-스타일" class="headerlink" title="format 스타일"></a><strong>format 스타일</strong></h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c.execute(<span class="string">"SELECT * FROM users WHERE id IN('%d','%d')"</span> % (<span class="number">3</span>, <span class="number">4</span>))</span><br><span class="line">print(<span class="string">'param5'</span>, c.fetchall())</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">param5 [(3, &#39;Lee&#39;, &#39;leenave.com&#39;, &#39;010-2222-2222&#39;, &#39;Lee.com&#39;, &#39;2020-05-21 12:18:07&#39;), (4, &#39;Cho&#39;, &#39;Cho@.com&#39;, &#39;010-3333-3333&#39;, &#39;Cho.com&#39;, &#39;2020-05-21 12:18:07&#39;)]</span><br></pre></td></tr></table></figure>
+
+<h4 id="여러가지-딕셔너리"><a href="#여러가지-딕셔너리" class="headerlink" title="여러가지 딕셔너리"></a><strong>여러가지 딕셔너리</strong></h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c.execute(<span class="string">"SELECT * FROM users WHERE id=:id1 OR id=:id2"</span>, &#123;<span class="string">"id1"</span>: <span class="number">2</span>, <span class="string">"id2"</span>: <span class="number">5</span>&#125;)</span><br><span class="line">print(<span class="string">'param6'</span>, c.fetchall())</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">param6 [(2, &#39;Park&#39;, &#39;Park@gmail.com&#39;, &#39;010-1111-1111&#39;, &#39;Park.com&#39;, &#39;2020-05-21 12:18:07&#39;), (5, &#39;Yoo&#39;, &#39;You@.com&#39;, &#39;010-4444-4444&#39;, &#39;You.com&#39;, &#39;2020-05-21 12:18:07&#39;)]</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Dump-출력"><a href="#Dump-출력" class="headerlink" title="# Dump 출력"></a># Dump 출력</h2><p>현재 데이터를 명령어 까지 포함하여 파일로 만들어 준다.<br>dump파일로 쉽게 데이터를 생성 할 수 있다.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> conn:</span><br><span class="line">  <span class="keyword">with</span> open(<span class="string">'/Users/claudjung/Documents/dev/python_basic/resource/dump.sql'</span>,<span class="string">'w'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> conn.iterdump():</span><br><span class="line">      f.write(<span class="string">'%s\n'</span> % line)</span><br></pre></td></tr></table></figure>
+<p>위와 같이 파일 읽기/쓰기 에서 사용한 <code>with as</code>와 <code>open</code>을 사용한다.<br>쓰기 모드로 한다.<br><strong><code>iterdump()</code></strong> : 데이터 생성/입력 할수 있는 명령어들을 가져온다.</p>
+<p>실행해보면,<br>지정한 디렉토리에 dump.sql 파일이 생성된다.  </p>
+<img src="/2020/05/25/python-sql-select/dump.png" class="">
+
+<h2 id="키워드"><a href="#키워드" class="headerlink" title="# 키워드"></a># 키워드</h2><ul>
+<li>sqlite3</li>
+<li>connect()</li>
+<li>cursor()</li>
+<li>execute()</li>
+<li>fetchone(), fetchmany(), fetchall()</li>
+<li>“SELECT * FROM users “</li>
+<li>“SELCET * FROM users WHERE id=?”</li>
+<li>dump<ul>
+<li>iterdump()</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://o-seok.github.io/2020/05/25/python-sql-select/" data-id="ckamlkogc0015tnol3k6s1i3u" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "O-Seok"
+        },
+        "headline": "DB 조회",
+        "image": "https://O-Seok.github.io/images/thumb/thumb_sql_select.png",
+        "keywords": "python sqlite DB table select",
+        "genre": "01_studying. TIL 👨🏻‍💻 python",
+        "datePublished": "2020-05-25",
+        "dateCreated": "2020-05-25",
+        "dateModified": "2020-05-25",
+        "url": "https://O-Seok.github.io/2020/05/25/python-sql-select/",
+        "description": "등록되어 있는 데이터를 조회 해본다.
+users 데이터:
+
+
+# DB파일 조회(없으면 새로 생성)123import sqlite3conn = sqlite3.connect('/Users/claudjung/Documents/dev/python_basic/resource/database.db')
+connect() 로 DB파일 위치와 파일 이름을 조회해보고, 없으면",
+        "wordCount": 815
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="instagram" href="https://www.instagram.com/pm.23_59/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-instagram"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/O-Seok" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2020/05/25/python-sql-set-delete/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            DB 수정, 삭제
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2020/05/25/python-sqlite-basic/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">DB파일생성, 테이블생성, 데이터 삽입</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/05/25/python-sql-set-delete/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumb/thumb_sql_set_delete.png)" alt="DB 수정, 삭제" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a></p>
+                            <p class="item-title"><a href="/2020/05/25/python-sql-set-delete/" class="title">DB 수정, 삭제</a></p>
+                            <p class="item-date"><time datetime="2020-05-25T14:37:22.000Z" itemprop="datePublished">2020-05-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/05/25/python-sql-select/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumb/thumb_sql_select.png)" alt="DB 조회" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a></p>
+                            <p class="item-title"><a href="/2020/05/25/python-sql-select/" class="title">DB 조회</a></p>
+                            <p class="item-date"><time datetime="2020-05-25T14:32:10.000Z" itemprop="datePublished">2020-05-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/05/25/python-sqlite-basic/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumb/thumb_sql_basic.png)" alt="DB파일생성, 테이블생성, 데이터 삽입" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a></p>
+                            <p class="item-title"><a href="/2020/05/25/python-sqlite-basic/" class="title">DB파일생성, 테이블생성, 데이터 삽입</a></p>
+                            <p class="item-date"><time datetime="2020-05-25T14:25:10.000Z" itemprop="datePublished">2020-05-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/05/25/python-foreign-file/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumb/thumb_foreign_file.png)" alt="외부파일(CSV, EXCEL) 읽기, 쓰기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a></p>
+                            <p class="item-title"><a href="/2020/05/25/python-foreign-file/" class="title">외부파일(CSV, EXCEL) 읽기, 쓰기</a></p>
+                            <p class="item-date"><time datetime="2020-05-25T14:08:15.000Z" itemprop="datePublished">2020-05-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/05/25/python-file-read-write/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumb/thumb_file_read_write.png)" alt="파일 읽기, 쓰기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a></p>
+                            <p class="item-title"><a href="/2020/05/25/python-file-read-write/" class="title">파일 읽기, 쓰기</a></p>
+                            <p class="item-date"><time datetime="2020-05-25T14:02:44.000Z" itemprop="datePublished">2020-05-25</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><span class="category-list-count">22</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/blog/">blog</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a><span class="category-list-count">20</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/02-issue-TIL-%F0%9F%92%A5/">02_issue. TIL 💥</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/02-issue-TIL-%F0%9F%92%A5/python/">python</a><span class="category-list-count">1</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">23</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DB/" rel="tag">DB</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UnicodeDecodeError/" rel="tag">UnicodeDecodeError</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/" rel="tag">blog</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/class/" rel="tag">class</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/create/" rel="tag">create</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv/" rel="tag">csv</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datatype/" rel="tag">datatype</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/delete/" rel="tag">delete</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dict/" rel="tag">dict</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/excel/" rel="tag">excel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/file/" rel="tag">file</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/for/" rel="tag">for</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/function/" rel="tag">function</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/" rel="tag">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hueman/" rel="tag">hueman</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/if/" rel="tag">if</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lambda/" rel="tag">lambda</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/layout/" rel="tag">layout</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list/" rel="tag">list</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/module/" rel="tag">module</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/package/" rel="tag">package</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/print/" rel="tag">print</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/read/" rel="tag">read</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/select/" rel="tag">select</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/set/" rel="tag">set</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sqlite/" rel="tag">sqlite</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/string/" rel="tag">string</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/table/" rel="tag">table</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/theme/" rel="tag">theme</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tuple/" rel="tag">tuple</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/while/" rel="tag">while</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/write/" rel="tag">write</a><span class="tag-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/DB/" style="font-size: 15px;">DB</a> <a href="/tags/UnicodeDecodeError/" style="font-size: 10px;">UnicodeDecodeError</a> <a href="/tags/blog/" style="font-size: 12.5px;">blog</a> <a href="/tags/class/" style="font-size: 12.5px;">class</a> <a href="/tags/create/" style="font-size: 10px;">create</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/csv/" style="font-size: 12.5px;">csv</a> <a href="/tags/datatype/" style="font-size: 17.5px;">datatype</a> <a href="/tags/delete/" style="font-size: 10px;">delete</a> <a href="/tags/dict/" style="font-size: 10px;">dict</a> <a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/file/" style="font-size: 12.5px;">file</a> <a href="/tags/for/" style="font-size: 10px;">for</a> <a href="/tags/function/" style="font-size: 12.5px;">function</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 12.5px;">hexo</a> <a href="/tags/hueman/" style="font-size: 10px;">hueman</a> <a href="/tags/if/" style="font-size: 10px;">if</a> <a href="/tags/lambda/" style="font-size: 10px;">lambda</a> <a href="/tags/layout/" style="font-size: 10px;">layout</a> <a href="/tags/list/" style="font-size: 10px;">list</a> <a href="/tags/module/" style="font-size: 10px;">module</a> <a href="/tags/package/" style="font-size: 10px;">package</a> <a href="/tags/print/" style="font-size: 10px;">print</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/read/" style="font-size: 12.5px;">read</a> <a href="/tags/select/" style="font-size: 10px;">select</a> <a href="/tags/set/" style="font-size: 12.5px;">set</a> <a href="/tags/sqlite/" style="font-size: 15px;">sqlite</a> <a href="/tags/string/" style="font-size: 10px;">string</a> <a href="/tags/table/" style="font-size: 15px;">table</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/tuple/" style="font-size: 10px;">tuple</a> <a href="/tags/while/" style="font-size: 10px;">while</a> <a href="/tags/write/" style="font-size: 12.5px;">write</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <!-- <a href="/" class="logo"></a> -->
+                </h1>
+                <p>&copy; 2020 O-Seok</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://o-seok.github.io/2020/05/25/python-sql-select/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
