@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    
+
+    
+    <title>DB파일생성, 테이블생성, 데이터 삽입 | O-Seok 개발일지</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="python,sqlite,DB,table,create" />
+    
+    <meta name="description" content="파이썬에서 데이터베이스 연동 하는데 기본적으로 내장되어 있는 SQlite를 사용하겠다. # sqlite31234import sqlite3print(&#39;sqlite3.verseion: &#39;, sqlite3.version)print(&#39;sqlite3.sqlite_version: &#39;, sqlite3.sqlite_version) 12sqlite3.verseion:  2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DB파일생성, 테이블생성, 데이터 삽입">
+<meta property="og:url" content="https://o-seok.github.io/2020/05/25/python-sqlite-basic/index.html">
+<meta property="og:site_name" content="O-Seok 개발일지">
+<meta property="og:description" content="파이썬에서 데이터베이스 연동 하는데 기본적으로 내장되어 있는 SQlite를 사용하겠다. # sqlite31234import sqlite3print(&#39;sqlite3.verseion: &#39;, sqlite3.version)print(&#39;sqlite3.sqlite_version: &#39;, sqlite3.sqlite_version) 12sqlite3.verseion:  2">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://o-seok.github.io/images/thumb/thumb_sql_basic.png">
+<meta property="article:published_time" content="2020-05-25T14:25:10.000Z">
+<meta property="article:modified_time" content="2020-05-25T14:29:51.874Z">
+<meta property="article:author" content="O-Seok">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="sqlite">
+<meta property="article:tag" content="DB">
+<meta property="article:tag" content="table">
+<meta property="article:tag" content="create">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://o-seok.github.io/images/thumb/thumb_sql_basic.png">
+    
+
+    
+        <link rel="alternate" href="/" title="O-Seok 개발일지" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/images/favicon_io/sparks.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/titillium-web/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/3.5.0/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    <p class="header-title-name">
+                        O-Seok 개발 성장 일지 ✨
+                    </p>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/blog/">blog</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/02-issue-TIL-%F0%9F%92%A5/">02_issue. TIL 💥</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/02-issue-TIL-%F0%9F%92%A5/python/">python</a></li></ul></li></ul>
+                                    
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-python-sqlite-basic" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        DB파일생성, 테이블생성, 데이터 삽입
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+      <i class="fa fa-calendar"></i>
+      <a href="/2020/05/25/python-sqlite-basic/" class="article-date">
+         <time datetime="2020-05-25T14:25:10.000Z" itemprop="datePublished">2020-05-25</time>
+      </a>
+    </div>
+
+
+                
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/DB/" rel="tag">DB</a>, <a class="tag-link" href="/tags/create/" rel="tag">create</a>, <a class="tag-link" href="/tags/python/" rel="tag">python</a>, <a class="tag-link" href="/tags/sqlite/" rel="tag">sqlite</a>, <a class="tag-link" href="/tags/table/" rel="tag">table</a>
+    </div>
+
+                
+
+                
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p>파이썬에서 데이터베이스 연동 하는데 기본적으로 내장되어 있는 SQlite를 사용하겠다.</p>
+<h2 id="sqlite3"><a href="#sqlite3" class="headerlink" title="# sqlite3"></a># sqlite3</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sqlite3</span><br><span class="line"></span><br><span class="line">print(<span class="string">'sqlite3.verseion: '</span>, sqlite3.version)</span><br><span class="line">print(<span class="string">'sqlite3.sqlite_version: '</span>, sqlite3.sqlite_version)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sqlite3.verseion:  2.6.0</span><br><span class="line">sqlite3.sqlite_version:  3.22.0</span><br></pre></td></tr></table></figure>
+
+<h2 id="DB생성-CONNECT"><a href="#DB생성-CONNECT" class="headerlink" title="# DB생성 (CONNECT)"></a># DB생성 (CONNECT)</h2><p>DB를 생성 해보자.<br>sqlite3 connect() 로 DB파일을 생성한다.  </p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlite3.connet(<span class="string">'(db파일 만들 디렉토리)/(생성할 db파일 이름).db'</span>)</span><br></pre></td></tr></table></figure>
+<p>다음과 같이 생성할 db이름과 생성될 디렉토리를 설정해주고 생성한다.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conn = sqlite3.connect(<span class="string">'/Users/claudjung/Documents/dev/python_basic/resource/database.db'</span>, isolation_level = <span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>✔️ auto-commit<br>connect()의 isolation_level 옵션을 None으로 하면, auto-commit 설정이 된다. 따로 commit을 해줄 필요가 없다.</p>
+</blockquote>
+<h2 id="테이블-생성-CREATE"><a href="#테이블-생성-CREATE" class="headerlink" title="# 테이블 생성 (CREATE)"></a># 테이블 생성 (CREATE)</h2><p>db안에 저장할 데이터들의 테이블을 생성한다.  </p>
+<h3 id="cursor"><a href="#cursor" class="headerlink" title="cursor()"></a><strong>cursor()</strong></h3><p>cursor()는 데이터의 끝부분을 가리킨다.<br>그러기 때문에 새로운 테이블을 생성해줄 때 cursor()로 데이터 끝부분을 가리키게 한 다음 생성해준다.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c = conn.cursor()</span><br></pre></td></tr></table></figure>
+<h3 id="execute"><a href="#execute" class="headerlink" title="execute()"></a><strong>execute()</strong></h3><p>db파일의 cursor()로 끝부분을 잡았다면, execute()로 테이블 생성을 해본다.</p>
+<h3 id="테이블-생성"><a href="#테이블-생성" class="headerlink" title="테이블 생성"></a><strong>테이블 생성</strong></h3><p>테이블 이름: users<br>항복: id(int값), username(text), email(text), phone(text), website(text), residate(text)</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c.execute(<span class="string">"CREATE TABLE IF NOT EXISTS users(id INTEGER PRIMARY KEY, \</span></span><br><span class="line"><span class="string">  username text, email text, phone text, website text, residate text)"</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="데이터-삽입-INSERT"><a href="#데이터-삽입-INSERT" class="headerlink" title="# 데이터 삽입 (INSERT)"></a># 데이터 삽입 (INSERT)</h2><p>생성한 테이블에 데이터를 삽입 해본다.</p>
+<p>residate 테이블에 들어갈 등록시간 데이터 구해놓기:</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 테이블 residate 데이터 값 구해놓기</span></span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line"><span class="comment"># 삽입 날짜 생성</span></span><br><span class="line">now = datetime.datetime.now()</span><br><span class="line">print(<span class="string">'now: '</span>, now)</span><br><span class="line"></span><br><span class="line">nowDatetime = now.strftime(<span class="string">'%Y-%m-%d %H:%M:%S'</span>)</span><br><span class="line">print(<span class="string">'nowDatetime: '</span>, nowDatetime)</span><br></pre></td></tr></table></figure>
+<p>명령어를 통해 생성한 테이블에 데이터를 삽입 해준다.<br>데이터 삽입 1, 2는 형태가 조금 다를 뿐 데이터 삽입 방식!</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 데이터 삽입 1</span></span><br><span class="line">c.execute(<span class="string">"INSERT INTO users VALUES(1, 'Jeong', 'totkfa789@gmail.com', '010-0000-0000', 'Jeong.com', ? )"</span>, (nowDatetime,))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 데이터 삽입 2</span></span><br><span class="line">c.execute(<span class="string">"INSERT INTO users(id, username, email, phone, website, residate) VALUES (?, ?, ?, ?, ?, ?)"</span>, (<span class="number">2</span>, <span class="string">'Park'</span>, <span class="string">'Park@gmail.com'</span>, <span class="string">'010-1111-1111'</span>, <span class="string">'Park.com'</span>, nowDatetime,))</span><br></pre></td></tr></table></figure>
+
+<p><strong>많은 데이터 삽입</strong>  </p>
+<p>튜플이나 리스트 형태의 데이터들로 데이터를 삽입 할 수 있다.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">userList = (</span><br><span class="line">  (<span class="number">3</span>, <span class="string">'Lee'</span>, <span class="string">'leenave.com'</span>, <span class="string">'010-2222-2222'</span>, <span class="string">'Lee.com'</span>, nowDatetime),</span><br><span class="line">  (<span class="number">4</span>, <span class="string">'Cho'</span>, <span class="string">'Cho@.com'</span>, <span class="string">'010-3333-3333'</span>, <span class="string">'Cho.com'</span>, nowDatetime),</span><br><span class="line">  (<span class="number">5</span>, <span class="string">'Yoo'</span>, <span class="string">'You@.com'</span>, <span class="string">'010-4444-4444'</span>, <span class="string">'You.com'</span>, nowDatetime)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">c.executemany(<span class="string">"INSERT INTO users(id, username, email, phone, website, residate) VALUES (?, ?, ?, ?, ?, ?)"</span>, userList)</span><br></pre></td></tr></table></figure>
+
+<h2 id="DB-Browser-for-SQLite"><a href="#DB-Browser-for-SQLite" class="headerlink" title="# DB Browser for SQLite"></a># DB Browser for SQLite</h2><p><strong>db파일의 데이터들을 GUI 형태로 쉽게 확인</strong> 할 수 있다.<br>DB Browser for SQLite를 실행 시키고 방금 생성한 db파일을 선택하고 실행 시킨다.  </p>
+<p>다음과 같이 db파일의 생성된 테이블과 삽입된 데이터 값들을 확인 할 수 있다.</p>
+<img src="../image/db_GUI.png">
+
+<h2 id="접속-해제-CLOSE"><a href="#접속-해제-CLOSE" class="headerlink" title="# 접속 해제 (CLOSE)"></a># 접속 해제 (CLOSE)</h2><p>작업을 안한다면, 미래의 알 수 없는 문제를 일으키지 않게 하기 위해 접속을 종료해준다. </p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conn.close()</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="키워드"><a href="#키워드" class="headerlink" title="# 키워드"></a># 키워드</h2><ul>
+<li>sqlite3<ul>
+<li>connect()<ul>
+<li>isolation_level=None</li>
+</ul>
+</li>
+<li>cursor()</li>
+<li>execute()<ul>
+<li>테이블 생성</li>
+<li>테이블 삭제</li>
+<li>데이터 삽입</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>DB Browser for SQLite</li>
+</ul>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="https://o-seok.github.io/2020/05/25/python-sqlite-basic/" data-id="ckaml9fw50019deol1zojh5fo" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "O-Seok"
+        },
+        "headline": "DB파일생성, 테이블생성, 데이터 삽입",
+        "image": "https://O-Seok.github.io/images/thumb/thumb_sql_basic.png",
+        "keywords": "python sqlite DB table create",
+        "genre": "01_studying. TIL 👨🏻‍💻 python",
+        "datePublished": "2020-05-25",
+        "dateCreated": "2020-05-25",
+        "dateModified": "2020-05-25",
+        "url": "https://O-Seok.github.io/2020/05/25/python-sqlite-basic/",
+        "description": "파이썬에서 데이터베이스 연동 하는데 기본적으로 내장되어 있는 SQlite를 사용하겠다.
+# sqlite31234import sqlite3print('sqlite3.verseion: ', sqlite3.version)print('sqlite3.sqlite_version: ', sqlite3.sqlite_version)
+12sqlite3.verseion:  2",
+        "wordCount": 515
+    }
+</script>
+
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+    
+    </section>
+
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="instagram" href="https://www.instagram.com/pm.23_59/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-instagram"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/O-Seok" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="rss" href="/" target="_blank" rel="noopener">
+                        <i class="icon fa fa-rss"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2020/05/25/python-foreign-file/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">외부파일(CSV, EXCEL) 읽기, 쓰기</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/05/25/python-sqlite-basic/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumb/thumb_sql_basic.png)" alt="DB파일생성, 테이블생성, 데이터 삽입" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a></p>
+                            <p class="item-title"><a href="/2020/05/25/python-sqlite-basic/" class="title">DB파일생성, 테이블생성, 데이터 삽입</a></p>
+                            <p class="item-date"><time datetime="2020-05-25T14:25:10.000Z" itemprop="datePublished">2020-05-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/05/25/python-foreign-file/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumb/thumb_foreign_file.png)" alt="외부파일(CSV, EXCEL) 읽기, 쓰기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a></p>
+                            <p class="item-title"><a href="/2020/05/25/python-foreign-file/" class="title">외부파일(CSV, EXCEL) 읽기, 쓰기</a></p>
+                            <p class="item-date"><time datetime="2020-05-25T14:08:15.000Z" itemprop="datePublished">2020-05-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/05/25/python-file-read-write/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumb/thumb_file_read_write.png)" alt="파일 읽기, 쓰기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a></p>
+                            <p class="item-title"><a href="/2020/05/25/python-file-read-write/" class="title">파일 읽기, 쓰기</a></p>
+                            <p class="item-date"><time datetime="2020-05-25T14:02:44.000Z" itemprop="datePublished">2020-05-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/05/25/python-package-module/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumb/thumb_package_module.png)" alt="패키지 &amp; 모듈" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a></p>
+                            <p class="item-title"><a href="/2020/05/25/python-package-module/" class="title">패키지 &amp; 모듈</a></p>
+                            <p class="item-date"><time datetime="2020-05-25T13:48:13.000Z" itemprop="datePublished">2020-05-25</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2020/05/24/python-class-inheritance/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumb/thumb_class_inheritance.png)" alt="상속 (inheritance)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a></p>
+                            <p class="item-title"><a href="/2020/05/24/python-class-inheritance/" class="title">상속 (inheritance)</a></p>
+                            <p class="item-date"><time datetime="2020-05-24T11:35:30.000Z" itemprop="datePublished">2020-05-24</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><span class="category-list-count">20</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/blog/">blog</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a><span class="category-list-count">18</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/02-issue-TIL-%F0%9F%92%A5/">02_issue. TIL 💥</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/02-issue-TIL-%F0%9F%92%A5/python/">python</a><span class="category-list-count">1</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">21</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DB/" rel="tag">DB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UnicodeDecodeError/" rel="tag">UnicodeDecodeError</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/" rel="tag">blog</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/class/" rel="tag">class</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/create/" rel="tag">create</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/csv/" rel="tag">csv</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datatype/" rel="tag">datatype</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dict/" rel="tag">dict</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/excel/" rel="tag">excel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/file/" rel="tag">file</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/for/" rel="tag">for</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/function/" rel="tag">function</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/" rel="tag">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hueman/" rel="tag">hueman</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/if/" rel="tag">if</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lambda/" rel="tag">lambda</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/layout/" rel="tag">layout</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/list/" rel="tag">list</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/module/" rel="tag">module</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/package/" rel="tag">package</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/print/" rel="tag">print</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">19</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/read/" rel="tag">read</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/set/" rel="tag">set</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sqlite/" rel="tag">sqlite</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/string/" rel="tag">string</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/table/" rel="tag">table</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/theme/" rel="tag">theme</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tuple/" rel="tag">tuple</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/while/" rel="tag">while</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/write/" rel="tag">write</a><span class="tag-list-count">2</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/DB/" style="font-size: 10px;">DB</a> <a href="/tags/UnicodeDecodeError/" style="font-size: 10px;">UnicodeDecodeError</a> <a href="/tags/blog/" style="font-size: 13.33px;">blog</a> <a href="/tags/class/" style="font-size: 13.33px;">class</a> <a href="/tags/create/" style="font-size: 10px;">create</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/csv/" style="font-size: 13.33px;">csv</a> <a href="/tags/datatype/" style="font-size: 16.67px;">datatype</a> <a href="/tags/dict/" style="font-size: 10px;">dict</a> <a href="/tags/excel/" style="font-size: 10px;">excel</a> <a href="/tags/file/" style="font-size: 13.33px;">file</a> <a href="/tags/for/" style="font-size: 10px;">for</a> <a href="/tags/function/" style="font-size: 13.33px;">function</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/hueman/" style="font-size: 10px;">hueman</a> <a href="/tags/if/" style="font-size: 10px;">if</a> <a href="/tags/lambda/" style="font-size: 10px;">lambda</a> <a href="/tags/layout/" style="font-size: 10px;">layout</a> <a href="/tags/list/" style="font-size: 10px;">list</a> <a href="/tags/module/" style="font-size: 10px;">module</a> <a href="/tags/package/" style="font-size: 10px;">package</a> <a href="/tags/print/" style="font-size: 10px;">print</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/read/" style="font-size: 13.33px;">read</a> <a href="/tags/set/" style="font-size: 10px;">set</a> <a href="/tags/sqlite/" style="font-size: 10px;">sqlite</a> <a href="/tags/string/" style="font-size: 10px;">string</a> <a href="/tags/table/" style="font-size: 10px;">table</a> <a href="/tags/theme/" style="font-size: 10px;">theme</a> <a href="/tags/tuple/" style="font-size: 10px;">tuple</a> <a href="/tags/while/" style="font-size: 10px;">while</a> <a href="/tags/write/" style="font-size: 13.33px;">write</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io" target="_blank" rel="noopener">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <!-- <a href="/" class="logo"></a> -->
+                </h1>
+                <p>&copy; 2020 O-Seok</p>
+                
+                <p>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="https://github.com/ppoffice" target="_blank">PPOffice</a></p>
+                
+            </div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+    </div>
+    
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'https://o-seok.github.io/2020/05/25/python-sqlite-basic/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+
+    
+    
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
