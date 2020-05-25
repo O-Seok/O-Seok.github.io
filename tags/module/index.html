@@ -6,28 +6,17 @@
     
 
     
-    <title>람다식 (lambda) | O-Seok 개발일지</title>
+    <title>Tag: module | O-Seok 개발일지</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="python,function,lambda" />
-    
-    <meta name="description" content="한마디로 간결! 간단! 깔끔!메모리 절약, 가독성 향상, 코드 간결함수: 객체 생성 -&gt; 리소스(메모리) 할당람다: 즉시 실행(heap 초기화) -&gt; 메모리 초기화 일반적 함수12345678def mul_10(num: int) -&gt; int:  return num * 10var_func &#x3D; mul_10print(var_func)print(ty">
-<meta property="og:type" content="article">
-<meta property="og:title" content="람다식 (lambda)">
-<meta property="og:url" content="https://o-seok.github.io/2020/05/24/function-lambda/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="O-Seok 개발일지">
+<meta property="og:url" content="https://o-seok.github.io/tags/module/index.html">
 <meta property="og:site_name" content="O-Seok 개발일지">
-<meta property="og:description" content="한마디로 간결! 간단! 깔끔!메모리 절약, 가독성 향상, 코드 간결함수: 객체 생성 -&gt; 리소스(메모리) 할당람다: 즉시 실행(heap 초기화) -&gt; 메모리 초기화 일반적 함수12345678def mul_10(num: int) -&gt; int:  return num * 10var_func &#x3D; mul_10print(var_func)print(ty">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://o-seok.github.io/images/thumb/thumb_lambda.png">
-<meta property="article:published_time" content="2020-05-24T10:11:41.000Z">
-<meta property="article:modified_time" content="2020-05-24T10:14:31.909Z">
 <meta property="article:author" content="O-Seok">
-<meta property="article:tag" content="python">
-<meta property="article:tag" content="function">
-<meta property="article:tag" content="lambda">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://o-seok.github.io/images/thumb/thumb_lambda.png">
     
 
     
@@ -154,165 +143,78 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a>
+    <i class="icon fa fa-tag"></i>Tag: <em>module</em>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-function-lambda" class="article article-single article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
+                            
+
+    
+    
         
-            <header class="article-header">
-                
+        
+        <section class="archives-wrap">
+            <div class="archive-year-wrap">
+                <a href="/archives/2020" class="archive-year"><i class="icon fa fa-calendar-o"></i>2020</a>
+            </div>
+            <div class="archives">
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2020/05/25/python-package-module/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumb/thumb_package_module.png)" alt="패키지 &amp; 모듈" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://o-seok.github.io/2020/05/25/python-package-module/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a>
+            </div>
+            <div class="date"><time datetime="2020-05-25T13:48:13.000Z" itemprop="datePublished">2020-05-25</time></div>
+        </div>
+        
     
         <h1 class="article-title" itemprop="name">
-        람다식 (lambda)
+        <a href="/2020/05/25/python-package-module/">패키지 &amp; 모듈</a>
         </h1>
     
 
-            </header>
-        
-        
-            <div class="article-meta">
-                
-    <div class="article-date">
-      <i class="fa fa-calendar"></i>
-      <a href="/2020/05/24/function-lambda/" class="article-date">
-         <time datetime="2020-05-24T10:11:41.000Z" itemprop="datePublished">2020-05-24</time>
-      </a>
+        <p class="article-excerpt">
+            Package는 도트(.)를 사용하여 파이썬 모듈들을 디렉토리 구조로 관리할 수 있게 해준다.파이썬 패키지는 디렉토리와 파이썬 모듈로 이루어진다.
+간단한 예시로 보면 
+
+
+음식 디렉토리는 맛.py, 크기.py 모듈을 가진 패키지옷 디렉토리는 계절구분.py 모듈을 가진 패키지전자제품 디렉토리는 스펙 모듈을 가진 패키지
+# package 사용다음과 같이 패키지
+        </p>
     </div>
-
-
-                
-
-                
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/function/" rel="tag">function</a>, <a class="tag-link" href="/tags/lambda/" rel="tag">lambda</a>, <a class="tag-link" href="/tags/python/" rel="tag">python</a>
-    </div>
-
-                
-
-                
-
-            </div>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-            <p>한마디로 간결! 간단! 깔끔!<br>메모리 절약, 가독성 향상, 코드 간결<br>함수: 객체 생성 -&gt; 리소스(메모리) 할당<br>람다: 즉시 실행(heap 초기화) -&gt; 메모리 초기화</p>
-<h3 id="일반적-함수"><a href="#일반적-함수" class="headerlink" title="일반적 함수"></a><strong>일반적 함수</strong></h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mul_10</span><span class="params">(num: int)</span> -&gt; int:</span></span><br><span class="line">  <span class="keyword">return</span> num * <span class="number">10</span></span><br><span class="line"></span><br><span class="line">var_func = mul_10</span><br><span class="line">print(var_func)</span><br><span class="line">print(type(var_func))</span><br><span class="line"></span><br><span class="line">print(var_func(<span class="number">10</span>))</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;class &#39;function&#39;&gt;</span><br><span class="line">100</span><br></pre></td></tr></table></figure>
-
-<h2 id="람다식"><a href="#람다식" class="headerlink" title="# 람다식"></a># 람다식</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># x는 인자를 의미 한다.</span></span><br><span class="line">lamda_mul_10 = <span class="keyword">lambda</span> x: x * <span class="number">10</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'&gt;&gt;&gt;'</span>, lamda_mul_10(<span class="number">10</span>))</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; 100</span><br></pre></td></tr></table></figure>
-
-<h3 id="람다식을-인자로-받을-수도-리턴-값으로-줄-수도-있다"><a href="#람다식을-인자로-받을-수도-리턴-값으로-줄-수도-있다" class="headerlink" title="람다식을 인자로 받을 수도, 리턴 값으로 줄 수도 있다."></a><strong>람다식을 인자로 받을 수도, 리턴 값으로 줄 수도 있다.</strong></h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func_final</span><span class="params">(x, y, func)</span>:</span></span><br><span class="line">  print( x * y * func(<span class="number">10</span>))</span><br><span class="line"></span><br><span class="line">func_final(<span class="number">10</span>, <span class="number">10</span>, lamda_mul_10)</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">10000</span><br></pre></td></tr></table></figure>
-
-<h3 id="즉석에서-만들어서-줄-수도-있다"><a href="#즉석에서-만들어서-줄-수도-있다" class="headerlink" title="즉석에서 만들어서 줄 수도 있다."></a><strong>즉석에서 만들어서 줄 수도 있다.</strong></h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(func_final(<span class="number">10</span>, <span class="number">10</span>, <span class="keyword">lambda</span> x : x * <span class="number">1000</span>))</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1000000</span><br></pre></td></tr></table></figure>
-        </div>
-        <footer class="article-footer">
-            
-
-
-
-    <a data-url="https://o-seok.github.io/2020/05/24/function-lambda/" data-id="ckamk2ig300045qol9flsgasp" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-        </footer>
-    </div>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "author": {
-            "@type": "Person",
-            "name": "O-Seok"
-        },
-        "headline": "람다식 (lambda)",
-        "image": "https://O-Seok.github.io/images/thumb/thumb_lambda.png",
-        "keywords": "python function lambda",
-        "genre": "01_studying. TIL 👨🏻‍💻 python",
-        "datePublished": "2020-05-24",
-        "dateCreated": "2020-05-24",
-        "dateModified": "2020-05-24",
-        "url": "https://O-Seok.github.io/2020/05/24/function-lambda/",
-        "description": "한마디로 간결! 간단! 깔끔!메모리 절약, 가독성 향상, 코드 간결함수: 객체 생성 -&gt; 리소스(메모리) 할당람다: 즉시 실행(heap 초기화) -&gt; 메모리 초기화
-일반적 함수12345678def mul_10(num: int) -&gt; int:  return num * 10var_func = mul_10print(var_func)print(ty",
-        "wordCount": 206
-    }
-</script>
-
 </article>
-
-    <section id="comments">
     
-        
-    <div id="disqus_thread">
-        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
-    </div>
-
-
+        </div>
     
-    </section>
+
+
+    </div></section>
 
 
 
@@ -350,29 +252,6 @@
             
         </ul>
     </div>
-    
-        
-<nav id="article-nav">
-    
-        <a href="/2020/05/24/python-datatype/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">newer</strong>
-        <p class="article-nav-title">
-        
-            데이터 타입
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
-    
-    
-        <a href="/2020/05/22/change-layout-in-hueman-theme-of-hexo/" id="article-nav-older" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">older</strong>
-        <p class="article-nav-title">hexo hueman 테마에서 반응형으로 header 레이아웃 변경하기</p>
-        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-        </a>
-    
-</nav>
-
     
     <div class="widgets-container">
         
@@ -584,13 +463,11 @@
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'https://o-seok.github.io/2020/05/24/function-lambda/';
-    
     (function() {
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
     </script>
