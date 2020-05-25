@@ -6,28 +6,31 @@
     
 
     
-    <title>CSV 파일 read시 UnicodeDecodeError 인코딩 오류 대처하기 | O-Seok 개발일지</title>
+    <title>외부파일(CSV, EXCEL) 읽기, 쓰기 | O-Seok 개발일지</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="python,csv,UnicodeDecodeError" />
+    <meta name="keywords" content="python,csv,file,read,write,excel" />
     
-    <meta name="description" content="파이썬으로 csv 파일을 읽어오는데 인코딩 오류 발생했다. 1234567import csvwith open(&#39;.&#x2F;resource&#x2F;sample1.csv&#39;, &#39;r&#39;) as f:  reader &#x3D; csv.reader(f)  for c in reader:    print(c) 유니코드 에러 내용: 1UnicodeDecodeError: &#39;utf-8&#39;">
+    <meta name="description" content="이번에는 파이썬 형식으로 된 모듈이 아닌, 외부파일을 읽고, 쓰기 작업을 해본다.open()close()with, as # CSV 파일 읽기sample1.csv 파일은 데이터들이 ,로 구분 되어져 있다.sample1.csv 파일 1234567891011번호, 이름, 가입일시, 나이1, 김정수, 2017-01-19 11:30:00, 252, 박민구, 2017">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSV 파일 read시 UnicodeDecodeError 인코딩 오류 대처하기">
-<meta property="og:url" content="https://o-seok.github.io/2020/05/09/CSV-%ED%8C%8C%EC%9D%BC-read%EC%8B%9C-UnicodeDecodeError-%EC%9D%B8%EC%BD%94%EB%94%A9-%EC%98%A4%EB%A5%98-%EB%8C%80%EC%B2%98%ED%95%98%EA%B8%B0/index.html">
+<meta property="og:title" content="외부파일(CSV, EXCEL) 읽기, 쓰기">
+<meta property="og:url" content="https://o-seok.github.io/2020/05/25/python-foreign-file/index.html">
 <meta property="og:site_name" content="O-Seok 개발일지">
-<meta property="og:description" content="파이썬으로 csv 파일을 읽어오는데 인코딩 오류 발생했다. 1234567import csvwith open(&#39;.&#x2F;resource&#x2F;sample1.csv&#39;, &#39;r&#39;) as f:  reader &#x3D; csv.reader(f)  for c in reader:    print(c) 유니코드 에러 내용: 1UnicodeDecodeError: &#39;utf-8&#39;">
+<meta property="og:description" content="이번에는 파이썬 형식으로 된 모듈이 아닌, 외부파일을 읽고, 쓰기 작업을 해본다.open()close()with, as # CSV 파일 읽기sample1.csv 파일은 데이터들이 ,로 구분 되어져 있다.sample1.csv 파일 1234567891011번호, 이름, 가입일시, 나이1, 김정수, 2017-01-19 11:30:00, 252, 박민구, 2017">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://o-seok.github.io/images/thumb/thumb_python_basic.jpeg">
-<meta property="article:published_time" content="2020-05-09T07:02:10.000Z">
-<meta property="article:modified_time" content="2020-05-24T10:16:06.390Z">
+<meta property="og:image" content="https://o-seok.github.io/images/thumb/thumb_foreign_file.png">
+<meta property="article:published_time" content="2020-05-25T14:08:15.000Z">
+<meta property="article:modified_time" content="2020-05-25T14:10:31.772Z">
 <meta property="article:author" content="O-Seok">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="csv">
-<meta property="article:tag" content="UnicodeDecodeError">
+<meta property="article:tag" content="file">
+<meta property="article:tag" content="read">
+<meta property="article:tag" content="write">
+<meta property="article:tag" content="excel">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://o-seok.github.io/images/thumb/thumb_python_basic.jpeg">
+<meta name="twitter:image" content="https://o-seok.github.io/images/thumb/thumb_foreign_file.png">
     
 
     
@@ -154,19 +157,19 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/02-issue-TIL-%F0%9F%92%A5/">02_issue. TIL 💥</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/02-issue-TIL-%F0%9F%92%A5/python/">python</a>
+    <a class="page-title-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-CSV-파일-read시-UnicodeDecodeError-인코딩-오류-대처하기" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-python-foreign-file" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        CSV 파일 read시 UnicodeDecodeError 인코딩 오류 대처하기
+        외부파일(CSV, EXCEL) 읽기, 쓰기
         </h1>
     
 
@@ -177,8 +180,8 @@
                 
     <div class="article-date">
       <i class="fa fa-calendar"></i>
-      <a href="/2020/05/09/CSV-%ED%8C%8C%EC%9D%BC-read%EC%8B%9C-UnicodeDecodeError-%EC%9D%B8%EC%BD%94%EB%94%A9-%EC%98%A4%EB%A5%98-%EB%8C%80%EC%B2%98%ED%95%98%EA%B8%B0/" class="article-date">
-         <time datetime="2020-05-09T07:02:10.000Z" itemprop="datePublished">2020-05-09</time>
+      <a href="/2020/05/25/python-foreign-file/" class="article-date">
+         <time datetime="2020-05-25T14:08:15.000Z" itemprop="datePublished">2020-05-25</time>
       </a>
     </div>
 
@@ -188,7 +191,7 @@
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/UnicodeDecodeError/" rel="tag">UnicodeDecodeError</a>, <a class="tag-link" href="/tags/csv/" rel="tag">csv</a>, <a class="tag-link" href="/tags/python/" rel="tag">python</a>
+        <a class="tag-link" href="/tags/csv/" rel="tag">csv</a>, <a class="tag-link" href="/tags/excel/" rel="tag">excel</a>, <a class="tag-link" href="/tags/file/" rel="tag">file</a>, <a class="tag-link" href="/tags/python/" rel="tag">python</a>, <a class="tag-link" href="/tags/read/" rel="tag">read</a>, <a class="tag-link" href="/tags/write/" rel="tag">write</a>
     </div>
 
                 
@@ -199,27 +202,77 @@
         
         
         <div class="article-entry" itemprop="articleBody">
-            <p>파이썬으로 csv 파일을 읽어오는데 인코딩 오류 발생했다.</p>
+            <p>이번에는 파이썬 형식으로 된 모듈이 아닌, 외부파일을 읽고, 쓰기 작업을 해본다.<br><code>open()</code><br><code>close()</code><br><code>with</code>, <code>as</code></p>
+<h2 id="CSV-파일-읽기"><a href="#CSV-파일-읽기" class="headerlink" title="# CSV 파일 읽기"></a># CSV 파일 읽기</h2><p>sample1.csv 파일은 데이터들이 <code>,</code>로 구분 되어져 있다.<br>sample1.csv 파일</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">번호, 이름, 가입일시, 나이</span><br><span class="line">1, 김정수, 2017-01-19 11:30:00, 25</span><br><span class="line">2, 박민구, 2017-02-07 10:22:00, 35</span><br><span class="line">3, 정순미, 2017-01-22 09:10:00, 33</span><br><span class="line">4, 김정현, 2017-02-22 14:09:00, 45</span><br><span class="line">5, 홍미진, 2017-04-01 18:00:00, 17</span><br><span class="line">6, 김순철, 2017-05-14 22:33:07, 22</span><br><span class="line">7, 이동철, 2017-03-01 23:44:45, 27</span><br><span class="line">8, 박지숙, 2017-01-11 06:04:18, 30</span><br><span class="line">9, 김은미, 2017-02-08 07:44:33, 51</span><br><span class="line">10, 장혁철, 2017-12-01 13:01:11, 16</span><br></pre></td></tr></table></figure>
+<p>csv파일도 똑같이 파일 open() 함수를 사용하여 불러온다.<br>read() 대신 <strong><code>csv.reader()</code></strong> 로 불러온 파일을 읽어들인다.</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'./resource/sample1.csv'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f:</span><br><span class="line">  reader = csv.reader(f)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> c <span class="keyword">in</span> reader:</span><br><span class="line">    print(c)</span><br></pre></td></tr></table></figure>
-<p>유니코드 에러 내용:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UnicodeDecodeError: &#39;utf-8&#39; codec can&#39;t decode byte 0xb9 in position 0: invalid start byte</span><br></pre></td></tr></table></figure>
-<p>다음과 같은 경우 드물게 발생한다고 한다  </p>
-<ol>
-<li>EUC-KR과 CP949를 구분하는 경우  </li>
-<li>EUC-KR만을 지원하는 프로그램에서 CP949로 작성된 텍스트 파일을 여는 경우</li>
-</ol>
-<p>쉽게 말해 지금 <strong>나의 파이썬 인코딩 설정 환경과 데이터 파일을 인코딩하는 설정 환경이 잘 안맞아서</strong> 그렇다는 것!</p>
-<h2 id="해결방법"><a href="#해결방법" class="headerlink" title="# 해결방법"></a># 해결방법</h2><p>오류 관련 서치 중 <code>encoding=&#39;CP949&#39;</code> 옵션을 넣어주면 깔끔하게 해결이 된 다는 것을 알게 되었다.</p>
-<p>내 코드에 바로 적용해 보면</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'./resource/sample1.csv'</span>, <span class="string">'r'</span>, encoding=<span class="string">'CP949'</span>) <span class="keyword">as</span> f:</span><br><span class="line">  reader = csv.reader(f)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> c <span class="keyword">in</span> reader:</span><br><span class="line">    print(c)</span><br></pre></td></tr></table></figure>
-<p>지정한 csv 파일을 잘 읽어온다!!! 😎🤟🏼</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[&#39;번호&#39;, &#39;이름&#39;, &#39;가입일시&#39;, &#39;나이&#39;]</span><br><span class="line">[&#39;1&#39;, &#39;김정수&#39;, &#39;2017-01-19 11:30:00&#39;, &#39;25&#39;]</span><br><span class="line">[&#39;2&#39;, &#39;박민구&#39;, &#39;2017-02-07 10:22:00&#39;, &#39;35&#39;]</span><br><span class="line">[&#39;3&#39;, &#39;정순미&#39;, &#39;2017-01-22 09:10:00&#39;, &#39;33&#39;]</span><br><span class="line">[&#39;4&#39;, &#39;김정현&#39;, &#39;2017-02-22 14:09:00&#39;, &#39;45&#39;]</span><br><span class="line">[&#39;5&#39;, &#39;홍미진&#39;, &#39;2017-04-01 18:00:00&#39;, &#39;17&#39;]</span><br><span class="line">[&#39;6&#39;, &#39;김순철&#39;, &#39;2017-05-14 22:33:07&#39;, &#39;22&#39;]</span><br><span class="line">[&#39;7&#39;, &#39;이동철&#39;, &#39;2017-03-01 23:44:45&#39;, &#39;27&#39;]</span><br><span class="line">[&#39;8&#39;, &#39;박지숙&#39;, &#39;2017-01-11 06:04:18&#39;, &#39;30&#39;]</span><br><span class="line">[&#39;9&#39;, &#39;김은미&#39;, &#39;2017-02-08 07:44:33&#39;, &#39;51&#39;]</span><br><span class="line">[&#39;10&#39;, &#39;장혁철&#39;, &#39;2017-12-01 13:01:11&#39;, &#39;16&#39;]</span><br></pre></td></tr></table></figure>
 
+<h3 id="딕셔너리형태로-읽어오기"><a href="#딕셔너리형태로-읽어오기" class="headerlink" title="딕셔너리형태로 읽어오기"></a><strong>딕셔너리형태로 읽어오기</strong></h3><p>reader() 대신 csv 클래스 옵션에 <strong><code>csv.DictReader()</code></strong> 로 딕셔너리 형태로 읽어온다.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'./resource/sample1.csv'</span>, <span class="string">'r'</span>, encoding=<span class="string">'CP949'</span>) <span class="keyword">as</span> f:</span><br><span class="line">  reader = csv.DictReader(f)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> c <span class="keyword">in</span> reader:</span><br><span class="line">    <span class="keyword">for</span> k, v <span class="keyword">in</span> c.items():</span><br><span class="line">      print(k, v)</span><br><span class="line">    print(<span class="string">'---------------'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">번호 1</span><br><span class="line">이름 김정수</span><br><span class="line">가입일시 2017-01-19 11:30:00</span><br><span class="line">나이 25</span><br><span class="line">---------------</span><br><span class="line">번호 2</span><br><span class="line">이름 박민구</span><br><span class="line">가입일시 2017-02-07 10:22:00</span><br><span class="line">나이 35</span><br><span class="line">---------------</span><br><span class="line">번호 3</span><br><span class="line">이름 정순미</span><br><span class="line">가입일시 2017-01-22 09:10:00</span><br><span class="line">나이 33</span><br><span class="line">---------------</span><br><span class="line">번호 4</span><br><span class="line">이름 김정현</span><br><span class="line">가입일시 2017-02-22 14:09:00</span><br><span class="line">나이 45</span><br><span class="line">---------------</span><br><span class="line">번호 5</span><br><span class="line">이름 홍미진</span><br><span class="line">가입일시 2017-04-01 18:00:00</span><br><span class="line">나이 17</span><br><span class="line">---------------</span><br><span class="line">번호 6</span><br><span class="line">이름 김순철</span><br><span class="line">가입일시 2017-05-14 22:33:07</span><br><span class="line">나이 22</span><br><span class="line">---------------</span><br><span class="line">번호 7</span><br><span class="line">이름 이동철</span><br><span class="line">가입일시 2017-03-01 23:44:45</span><br><span class="line">나이 27</span><br><span class="line">---------------</span><br><span class="line">번호 8</span><br><span class="line">이름 박지숙</span><br><span class="line">가입일시 2017-01-11 06:04:18</span><br><span class="line">나이 30</span><br><span class="line">---------------</span><br><span class="line">번호 9</span><br><span class="line">이름 김은미</span><br><span class="line">가입일시 2017-02-08 07:44:33</span><br><span class="line">나이 51</span><br><span class="line">---------------</span><br><span class="line">번호 10</span><br><span class="line">이름 장혁철</span><br><span class="line">가입일시 2017-12-01 13:01:11</span><br><span class="line">나이 16</span><br><span class="line">---------------</span><br></pre></td></tr></table></figure>
 
+<h3 id="csv파일-옵션-주기"><a href="#csv파일-옵션-주기" class="headerlink" title="csv파일 옵션 주기"></a><strong>csv파일 옵션 주기</strong></h3><p>sample2.csv 파일의 데이터들은 <code>|</code> 로 구분되어져 있다.<br>sample2.csv</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">번호|이름|가입일시|나이</span><br><span class="line">1|김정수|2017-01-19 11:30:00|25</span><br><span class="line">2|박민구|2017-02-07 10:22:00|35</span><br><span class="line">3|정순미|2017-01-22 09:10:00|33</span><br><span class="line">4|김정현|2017-02-22 14:09:00|45</span><br><span class="line">5|홍미진|2017-04-01 18:00:00|17</span><br><span class="line">6|김순철|2017-05-14 22:33:07|22</span><br><span class="line">7|이동철|2017-03-01 23:44:45|27</span><br><span class="line">8|박지숙|2017-01-11 06:04:18|30</span><br><span class="line">9|김은미|2017-02-08 07:44:33|51</span><br><span class="line">10|장혁철|2017-12-01 13:01:11|16</span><br></pre></td></tr></table></figure>
+<p>csv파일 데이터를 읽어오는데 | 를 없애는 옵션을 넣어 불러오면 깔끔하게 불러온 것을 볼수 있다.<br><strong><code>delimiter=&#39;|&#39;</code></strong></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'./resource/sample2.csv'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f:</span><br><span class="line">  reader = csv.reader(f, delimiter=<span class="string">'|'</span>)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> c <span class="keyword">in</span> reader:</span><br><span class="line">    print(c)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[&#39;번호&#39;, &#39;이름&#39;, &#39;가입일시&#39;, &#39;나이&#39;]</span><br><span class="line">[&#39;1&#39;, &#39;김정수&#39;, &#39;2017-01-19 11:30:00&#39;, &#39;25&#39;]</span><br><span class="line">[&#39;2&#39;, &#39;박민구&#39;, &#39;2017-02-07 10:22:00&#39;, &#39;35&#39;]</span><br><span class="line">[&#39;3&#39;, &#39;정순미&#39;, &#39;2017-01-22 09:10:00&#39;, &#39;33&#39;]</span><br><span class="line">[&#39;4&#39;, &#39;김정현&#39;, &#39;2017-02-22 14:09:00&#39;, &#39;45&#39;]</span><br><span class="line">[&#39;5&#39;, &#39;홍미진&#39;, &#39;2017-04-01 18:00:00&#39;, &#39;17&#39;]</span><br><span class="line">[&#39;6&#39;, &#39;김순철&#39;, &#39;2017-05-14 22:33:07&#39;, &#39;22&#39;]</span><br><span class="line">[&#39;7&#39;, &#39;이동철&#39;, &#39;2017-03-01 23:44:45&#39;, &#39;27&#39;]</span><br><span class="line">[&#39;8&#39;, &#39;박지숙&#39;, &#39;2017-01-11 06:04:18&#39;, &#39;30&#39;]</span><br><span class="line">[&#39;9&#39;, &#39;김은미&#39;, &#39;2017-02-08 07:44:33&#39;, &#39;51&#39;]</span><br><span class="line">[&#39;10&#39;, &#39;장혁철&#39;, &#39;2017-12-01 13:01:11&#39;, &#39;16&#39;]</span><br></pre></td></tr></table></figure>
+
+<h2 id="CSV-파일-쓰기"><a href="#CSV-파일-쓰기" class="headerlink" title="# CSV 파일 쓰기"></a># CSV 파일 쓰기</h2><p>이번에는 csv파일을 생성하고, 쓰기도 해본다.<br><strong><code>csv.writer()</code></strong> 와 <strong><code>writerow()</code></strong> 사용한다.  </p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">w = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>], [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>], [<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>], [<span class="number">10</span>,<span class="number">11</span>,<span class="number">12</span>], [<span class="number">13</span>,<span class="number">14</span>,<span class="number">15</span>], [<span class="number">16</span>,<span class="number">17</span>,<span class="number">18</span>]]</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'./resource/sample3.csv'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> f:</span><br><span class="line">  wt = csv.writer(f)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> v <span class="keyword">in</span> w:</span><br><span class="line">    wt.writerow(v)</span><br></pre></td></tr></table></figure>
+<p>resource/ 디렉토리 안에 sample3.csv 파일이 생성되고 안에 쓴 데이터가 들어가있다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1,2,3</span><br><span class="line">4,5,6</span><br><span class="line">7,8,9</span><br><span class="line">10,11,12</span><br><span class="line">13,14,15</span><br><span class="line">16,17,18</span><br></pre></td></tr></table></figure>
+
+<p>위처럼 다량의 데이터를 한번에 쓰려면 <strong><code>writerows()</code></strong> 를 이용하여 간단하게 할 수도 있다.</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">w = [[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>], [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>], [<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>], [<span class="number">10</span>,<span class="number">11</span>,<span class="number">12</span>], [<span class="number">13</span>,<span class="number">14</span>,<span class="number">15</span>], [<span class="number">16</span>,<span class="number">17</span>,<span class="number">18</span>]]</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'./resource/sample4.csv'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> f:</span><br><span class="line">  wt = csv.writer(f)</span><br><span class="line">  wt.writerows(w)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1,2,3</span><br><span class="line">4,5,6</span><br><span class="line">7,8,9</span><br><span class="line">10,11,12</span><br><span class="line">13,14,15</span><br><span class="line">16,17,18</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="EXCEL-파일-열기"><a href="#EXCEL-파일-열기" class="headerlink" title="# EXCEL 파일 열기"></a># EXCEL 파일 열기</h2><p>엑셀 파일 형식은 XSL, XLSX<br>엑셀 파일 열기 패키지로 pandas를 주로 이용(openpyxl, xlrd)  </p>
+<p>pip 로 pandas, openpyxl, xlrd 설치</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ pip install pandas</span><br><span class="line">$ pip install openpyxl</span><br><span class="line">$ pip install xlrd</span><br></pre></td></tr></table></figure>
+
+<p>pandas로 엑셀 파일을 열어보자.</p>
+<p><strong><code>read_excel()</code></strong></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line">xlsx = pd.read_excel(<span class="string">'./resource/sample.xlsx'</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># head(): 처음부터 5개까지</span></span><br><span class="line">print(xlsx.head())</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">  Sap Co.      대리점 영업사원       전월       금월  TEAM  총 판매수량</span><br><span class="line">0  KI1316  경기수원대리점  이기정  1720000  2952000     1     123</span><br><span class="line">1  KI1451  충청홍성대리점  정미진  4080000  2706000     2     220</span><br><span class="line">2  KI1534  경기화성대리점  경인선   600000  2214000     1     320</span><br><span class="line">3  KI1636  강원속초대리점  이동권  3720000  2870000     3     110</span><br><span class="line">4  KI1735  경기안양대리점  강준석  4800000  2296000     1     134</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># tail(): 끝에서 5개까지</span></span><br><span class="line">print(xlsx.tail())</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">   Sap Co.       대리점 영업사원       전월       금월  TEAM  총 판매수량</span><br><span class="line">15  KI2870  경기구리시대리점  박진형  6000000  3400000     2     143</span><br><span class="line">16  KI2910   강원춘천대리점  김은향  4800000  4896000     1     176</span><br><span class="line">17  KI3030   강원영동대리점  전수창  4560000  3128000     2      98</span><br><span class="line">18  KI3131   경기하남대리점  김민정  2750000  7268000     3     293</span><br><span class="line">19  KI3252   강원포천대리점  서가은  2420000  4740000     4     240</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 행, 열</span></span><br><span class="line">print(xlsx.shape)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(20, 7)</span><br></pre></td></tr></table></figure>
+
+<h2 id="EXCEL-파일-쓰기"><a href="#EXCEL-파일-쓰기" class="headerlink" title="# EXCEL 파일 쓰기"></a># EXCEL 파일 쓰기</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xlsx = pd.read_excel(<span class="string">'./resource/sample.xlsx'</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="엑셀파일로-쓰기"><a href="#엑셀파일로-쓰기" class="headerlink" title="엑셀파일로 쓰기"></a><strong>엑셀파일로 쓰기</strong></h3><p><strong><code>to_excel()</code></strong></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xlsx.to_excel(<span class="string">'./resource/result.xlsx'</span>, index=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="csv파일로-쓰기"><a href="#csv파일로-쓰기" class="headerlink" title="csv파일로 쓰기"></a><strong>csv파일로 쓰기</strong></h3><p><strong><code>to_csv()</code></strong></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xlsx.csv(<span class="string">'./resource/result.csv'</span>, index=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
 
 <h2 id="키워드"><a href="#키워드" class="headerlink" title="# 키워드"></a># 키워드</h2><ul>
-<li>UnicodeDecodeError</li>
-<li>encoding=’CP949’</li>
+<li>csv<ul>
+<li>csv.reader()<ul>
+<li>csv.reader(delimiter=’’)</li>
+<li>csv.dicReader()</li>
+</ul>
+</li>
+<li>csv.writer()<ul>
+<li>writerow()</li>
+<li>writerows()</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>pandas<ul>
+<li>read_excel()</li>
+</ul>
+</li>
+<li>to_excel()</li>
+<li>to_csv()</li>
 </ul>
 
         </div>
@@ -228,7 +281,7 @@
 
 
 
-    <a data-url="https://o-seok.github.io/2020/05/09/CSV-%ED%8C%8C%EC%9D%BC-read%EC%8B%9C-UnicodeDecodeError-%EC%9D%B8%EC%BD%94%EB%94%A9-%EC%98%A4%EB%A5%98-%EB%8C%80%EC%B2%98%ED%95%98%EA%B8%B0/" data-id="ckamkkgrb0000rqolemep5s0h" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://o-seok.github.io/2020/05/25/python-foreign-file/" data-id="ckamkkgrz000zrqolbqmzbks1" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -298,19 +351,18 @@
             "@type": "Person",
             "name": "O-Seok"
         },
-        "headline": "CSV 파일 read시 UnicodeDecodeError 인코딩 오류 대처하기",
-        "image": "https://O-Seok.github.io/images/thumb/thumb_python_basic.jpeg",
-        "keywords": "python csv UnicodeDecodeError",
-        "genre": "02_issue. TIL 💥 python",
-        "datePublished": "2020-05-09",
-        "dateCreated": "2020-05-09",
-        "dateModified": "2020-05-24",
-        "url": "https://O-Seok.github.io/2020/05/09/CSV-파일-read시-UnicodeDecodeError-인코딩-오류-대처하기/",
-        "description": "파이썬으로 csv 파일을 읽어오는데 인코딩 오류 발생했다.
-1234567import csvwith open('./resource/sample1.csv', 'r') as f:  reader = csv.reader(f)  for c in reader:    print(c)
-유니코드 에러 내용:
-1UnicodeDecodeError: &#39;utf-8&#39; ",
-        "wordCount": 254
+        "headline": "외부파일(CSV, EXCEL) 읽기, 쓰기",
+        "image": "https://O-Seok.github.io/images/thumb/thumb_foreign_file.png",
+        "keywords": "python csv file read write excel",
+        "genre": "01_studying. TIL 👨🏻‍💻 python",
+        "datePublished": "2020-05-25",
+        "dateCreated": "2020-05-25",
+        "dateModified": "2020-05-25",
+        "url": "https://O-Seok.github.io/2020/05/25/python-foreign-file/",
+        "description": "이번에는 파이썬 형식으로 된 모듈이 아닌, 외부파일을 읽고, 쓰기 작업을 해본다.open()close()with, as
+# CSV 파일 읽기sample1.csv 파일은 데이터들이 ,로 구분 되어져 있다.sample1.csv 파일
+1234567891011번호, 이름, 가입일시, 나이1, 김정수, 2017-01-19 11:30:00, 252, 박민구, 2017",
+        "wordCount": 1276
     }
 </script>
 
@@ -367,16 +419,12 @@
         
 <nav id="article-nav">
     
-        <a href="/2020/05/18/printed-hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">newer</strong>
-        <p class="article-nav-title">
-        
-            나도 &#39;Hello World!&#39;
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
+        <a href="/2020/05/25/python-file-read-write/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">파일 읽기, 쓰기</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
     
 </nav>
 
@@ -591,7 +639,7 @@
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'https://o-seok.github.io/2020/05/09/CSV-%ED%8C%8C%EC%9D%BC-read%EC%8B%9C-UnicodeDecodeError-%EC%9D%B8%EC%BD%94%EB%94%A9-%EC%98%A4%EB%A5%98-%EB%8C%80%EC%B2%98%ED%95%98%EA%B8%B0/';
+    var disqus_url = 'https://o-seok.github.io/2020/05/25/python-foreign-file/';
     
     (function() {
     var dsq = document.createElement('script');

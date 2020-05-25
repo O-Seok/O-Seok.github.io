@@ -6,13 +6,13 @@
     
 
     
-    <title>Tag: print | O-Seok 개발일지</title>
+    <title>Tag: write | O-Seok 개발일지</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta property="og:type" content="website">
 <meta property="og:title" content="O-Seok 개발일지">
-<meta property="og:url" content="https://o-seok.github.io/tags/print/index.html">
+<meta property="og:url" content="https://o-seok.github.io/tags/write/index.html">
 <meta property="og:site_name" content="O-Seok 개발일지">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="O-Seok">
@@ -143,7 +143,7 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <i class="icon fa fa-tag"></i>Tag: <em>print</em>
+    <i class="icon fa fa-tag"></i>Tag: <em>write</em>
     </h1>
 </div>
 
@@ -167,17 +167,17 @@
         <article class="article article-summary">
     <div class="article-summary-inner">
         
-        <a href="/2020/05/18/printed-hello-world/" class="thumbnail">
+        <a href="/2020/05/25/python-foreign-file/" class="thumbnail">
     
     
-        <span style="background-image:url(/images/thumb/thumb_print.png)" alt="나도 &#39;Hello World!&#39;" class="thumbnail-image"></span>
+        <span style="background-image:url(/images/thumb/thumb_foreign_file.png)" alt="외부파일(CSV, EXCEL) 읽기, 쓰기" class="thumbnail-image"></span>
     
     
         
 <span class="comment-counter">
     <i class="fa fa-comments-o"></i>
     
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://o-seok.github.io/2020/05/18/printed-hello-world/">0</span>
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://o-seok.github.io/2020/05/25/python-foreign-file/">0</span>
     
 </span>
 
@@ -190,21 +190,72 @@
             <div class="category">
             <a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a>
             </div>
-            <div class="date"><time datetime="2020-05-18T14:57:40.000Z" itemprop="datePublished">2020-05-18</time></div>
+            <div class="date"><time datetime="2020-05-25T14:08:15.000Z" itemprop="datePublished">2020-05-25</time></div>
         </div>
         
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2020/05/18/printed-hello-world/">나도 &#39;Hello World!&#39;</a>
+        <a href="/2020/05/25/python-foreign-file/">외부파일(CSV, EXCEL) 읽기, 쓰기</a>
         </h1>
     
 
         <p class="article-excerpt">
-            # print()파이썬의 print() 함수는 출력 함수이다.간단히 문자열을 출력해본다.그 유명한 Hello World 를… 😁
-기본출력1print('Hello World!')
-1Hello World!
-문자열은 다음과 같이도 출력 가능하다.
-1234print('Hello World!')print("Hello World!")print("""Hello Wor
+            이번에는 파이썬 형식으로 된 모듈이 아닌, 외부파일을 읽고, 쓰기 작업을 해본다.open()close()with, as
+# CSV 파일 읽기sample1.csv 파일은 데이터들이 ,로 구분 되어져 있다.sample1.csv 파일
+1234567891011번호, 이름, 가입일시, 나이1, 김정수, 2017-01-19 11:30:00, 252, 박민구, 2017
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2020/05/25/python-file-read-write/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/images/thumb/thumb_file_read_write.png)" alt="파일 읽기, 쓰기" class="thumbnail-image"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="https://o-seok.github.io/2020/05/25/python-file-read-write/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/">01_studying. TIL 👨🏻‍💻</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/01-studying-TIL-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB/python/">python</a>
+            </div>
+            <div class="date"><time datetime="2020-05-25T14:02:44.000Z" itemprop="datePublished">2020-05-25</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2020/05/25/python-file-read-write/">파일 읽기, 쓰기</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            파일 가져오기 기본은  open() 함수를 사용한다.open()을 이용해 파일을 가져왔으면 마지막에는 꼭 close()를 해준다.
+1open('파일PATH', '모드')
+
+✔️ 모드r : 읽기w : 쓰기a : 더하기
+
+# 읽기같은 디렉토리에 있는 resource 폴더 안의 review.txt 파일을 읽어본다.  
+resource/review.txt:
+123
         </p>
     </div>
 </article>
